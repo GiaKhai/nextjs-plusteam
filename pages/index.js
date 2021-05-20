@@ -3,6 +3,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import AIPlatform from "../components/ai";
+import Box from "../components/Box/Box";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/navbar";
 import Pricing from "../components/Pricing/pricing";
@@ -54,11 +55,19 @@ export default function Home() {
       </Head>
       <Navbar />
       <TopTalent />
-      <Services />
-      <Pricing />
-      <Process />
-      <AIPlatform />
-      <Team />
+
+      <Box
+        title="OUR SERVICES"
+        des="PlusTeam assists companies to build their technology teams in Vietnam."
+      >
+        <Services />
+      </Box>
+      <Box title="OUR PRICING" des="">
+        <Pricing />
+      </Box>
+      <Box title="WORK PROCESS" des="">
+        <Process />
+      </Box>
       <Footer />
     </div>
   );

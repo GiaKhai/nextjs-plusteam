@@ -51,26 +51,11 @@ export default function Services() {
 
   return (
     <div>
-      <section className="section area-padding-top" id="services">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2">
-              <h1 className="section-title text-center">OUR SERVICES</h1>
-              <div className="section-title-border margin-t-20" />
-              <p className="text-sumary">
-                PlusTeam assists companies to build their technology teams in
-                Vietnam.
-              </p>
-            </div>
-          </div>
-          <div className="row margin-t-50">
-            {dataService?.map((service) => {
-              return <BoxService key={service.id} services={service} />;
-            })}
-          </div>
-        </div>
-      </section>
-      <style jsx>{``}</style>
+      <div className="row margin-t-50">
+        {dataService?.map((service) => {
+          return <BoxService key={service.id} services={service} />;
+        })}
+      </div>
     </div>
   );
 }
