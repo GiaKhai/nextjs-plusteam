@@ -28,33 +28,28 @@ export default function Process() {
   ];
   return (
     <div>
-      <section className="section area-padding-top" id="process">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 offset-lg-2">
-              <h1 className="section-title text-center">WORK PROCESS</h1>
-            </div>
-          </div>
-          <div className="row margin-t-50">
-            {dataProcess.map((process) => {
-              return <ProcessItem key={process.id} process={process} />;
-            })}
-            <div className="text-center mx-auto">
-              <a href>
-                <button
-                  type="button"
-                  className="btn btn-outline-warning btn-hiring"
-                >
-                  Get Started
-                </button>
-              </a>
-            </div>
-          </div>
+      <div className="row margin-t-50">
+        {dataProcess.map((process) => {
+          return <ProcessItem key={process.id} process={process} />;
+        })}
+        <div className="text-center mx-auto">
+          <a href>
+            <button
+              type="button"
+              className="btn btn-outline-warning btn-hiring"
+            >
+              Get Started
+            </button>
+          </a>
         </div>
-      </section>
+      </div>
       <style jsx>{`
         .process-box {
           padding: 20px;
+        }
+        .btn-hiring:hover {
+          color: #ffffff;
+          background: rgba(253, 179, 28, 1);
         }
       `}</style>
     </div>

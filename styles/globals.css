@@ -44,3 +44,7 @@ a {
   color: #094989;
   font-weight: 700;
 }
+
+.area-padding-top {
+  padding-top: 50px;
+}
