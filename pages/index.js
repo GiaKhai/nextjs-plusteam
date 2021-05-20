@@ -2,11 +2,13 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import AIPlatform from "../components/ai";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/navbar";
 import Pricing from "../components/Pricing/pricing";
 import Process from "../components/Process/process";
 import Services from "../components/Service/service";
+import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 
 export default function Home() {
@@ -55,6 +57,8 @@ export default function Home() {
       <Services />
       <Pricing />
       <Process />
+      <AIPlatform />
+      <Team />
       <Footer />
     </div>
   );
