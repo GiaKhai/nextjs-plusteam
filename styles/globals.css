@@ -1,3 +1,5 @@
+/** @format */
+
 html,
 body {
   padding: 0;
@@ -13,4 +15,32 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.section-title {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 65px;
+  line-height: 78px;
+  text-align: center;
+  color: #094989;
+}
+.text-sumary {
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  color: #292b33;
+}
+.btn-hiring {
+  margin-top: 20px;
+  width: 140px;
+  height: 45px;
+  font-size: 17px;
+  border-radius: 25px;
+  border: 3px solid #fdb31c;
+  color: #094989;
+  font-weight: 700;
 }
