@@ -2,6 +2,7 @@
 
 import Head from "next/head";
 import Image from "next/image";
+import Box from "../components/Box/Box";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/navbar";
 import Pricing from "../components/Pricing/pricing";
@@ -35,7 +36,14 @@ export default function Home() {
       </Head>
       <Navbar />
       <TopTalent />
-      <Services />
+      <Box
+        title={"OUR SERVICES"}
+        des={
+          "PlusTeam assists companies to build their technology teams in Vietnam."
+        }
+      >
+        {<Services />}
+      </Box>
       <Pricing />
       <Footer />
     </div>
