@@ -1,11 +1,10 @@
+/** @format */
+
 import Head from "next/head";
 
 export default function TopTalent() {
   return (
     <div>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
       <div className="col-sm-12 col-lg-12">
         <div className="box-talent">
           <img src="./../static/img/talent/quangtran.jpg" alt="talent" />

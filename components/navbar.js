@@ -8,7 +8,7 @@ export default function Navbar() {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
               <a className="navbar-brand logo_h">
-                <img src="/logo-header.svg" alt="" />
+                <img src="../static/img/logo/Logo-header.svg" alt="" />
               </a>
 
               <div
