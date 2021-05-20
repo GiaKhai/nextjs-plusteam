@@ -54,15 +54,18 @@ export default function Home() {
       <Navbar />
       <TopTalent />
       <Box
-        title={"OUR SERVICES"}
-        des={
-          "PlusTeam assists companies to build their technology teams in Vietnam."
-        }
+        title="OUR SERVICES"
+        des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        {<Services />}
+        <Services />
       </Box>
-      <Pricing />
-      <Process />
+      <Box title="OUR PRICING" des="">
+        <Pricing />
+      </Box>
+      <Box title="WORK PROCESS" des="">
+        <Process />
+      </Box>
+
       <Footer />
     </div>
   );
