@@ -5,6 +5,7 @@ import Image from "next/image";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/navbar";
 import Pricing from "../components/Pricing/pricing";
+import Process from "../components/Process/process";
 import Services from "../components/Service/service";
 import TopTalent from "../components/TopTalent/TopTalent";
 
@@ -14,7 +15,7 @@ export default function Home() {
       <Head>
         <title>PlusTeam</title>
         <meta name="description" content="PlusTeam Global" />
-        <link rel="icon" href="/logo.svg" />
+        <link rel="icon" href="/static/img/logo/Logo.svg" />
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -32,11 +33,28 @@ export default function Home() {
           src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         ></script>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Avenir"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Bebas Neue"
+        ></link>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        ></link>
       </Head>
       <Navbar />
       <TopTalent />
       <Services />
       <Pricing />
+      <Process />
       <Footer />
     </div>
   );
