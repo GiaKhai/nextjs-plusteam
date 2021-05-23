@@ -12,7 +12,6 @@ export default function Crypto() {
             <p className="text-sumary">
               We accepted payment via Crypto currency USDT, BNB, BTC, ETH
             </p>
-            <p></p>
           </div>
           <div className="col-12">
             <div style={{ width: "80%", margin: "auto" }}>
@@ -52,10 +51,60 @@ export default function Crypto() {
                       </div>
                     </div>
                     <div className="carousel-item">
-                      <img src="..." className="d-block w-100" alt="..." />
+                      <div className="row">
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/USDT.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/BNB.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/BTC.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/ETH.svg" alt="" />
+                        </div>
+                      </div>{" "}
                     </div>
                     <div className="carousel-item">
-                      <img src="..." className="d-block w-100" alt="..." />
+                      <div className="row">
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/USDT.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/BNB.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/BTC.svg" alt="" />
+                        </div>
+                        <div
+                          className="col-lg-3"
+                          style={{ textAlign: "center", margin: "10px 0" }}
+                        >
+                          <img src="/static/img/crypto/ETH.svg" alt="" />
+                        </div>
+                      </div>{" "}
                     </div>
                   </div>
                 </div>
