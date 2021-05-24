@@ -25,7 +25,7 @@ export default function TopTalent() {
                   <a href="">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-banner"
+                      className="btn btn-outline-warning btn-hiring "
                     >
                       Share Your Resume
                     </button>
@@ -35,7 +35,7 @@ export default function TopTalent() {
                   <a href="">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-banner"
+                      className="btn btn-outline-warning btn-hiring "
                     >
                       Become A Client
                     </button>
@@ -61,8 +61,11 @@ export default function TopTalent() {
 
       <style jsx>
         {`
-          
-          } h4 {
+          .btn-hiring:hover {
+            color: #ffffff;
+            background: rgba(253, 179, 28, 1);
+          }
+          h4 {
             font-size: 65px;
             color: #094989;
             font-family: "Bebas Neue", sans-serif;
