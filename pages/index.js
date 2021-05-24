@@ -2,14 +2,17 @@
 
 import Head from "next/head";
 import Blog from "../components/Blog/blog";
+import BlogPage from "../components/BlogPage/blog-page";
 import Box from "../components/Box/Box";
 import Candidate from "../components/Candidate/candidate";
+import Contact from "../components/Contact/contact";
 import Crypto from "../components/Crypto/crypto";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/navbar";
 import Pricing from "../components/Pricing/pricing";
 import Process from "../components/Process/process";
 import Services from "../components/Service/service";
+import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 
 export default function Home() {
@@ -55,7 +58,6 @@ export default function Home() {
       </Head>
       <Navbar />
       <TopTalent />
-
       <Box
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
@@ -67,6 +69,9 @@ export default function Home() {
       </Box>
       <Box title="WORK PROCESS" des="">
         <Process />
+      </Box>
+      <Box title="OUR TEAM" des="">
+        <Team />
       </Box>
       <Box
         title="Crypto Payment Allowance"
@@ -82,6 +87,9 @@ export default function Home() {
       </Box>
       <Box title="BLOG" des="">
         <Blog />
+      </Box>
+      <Box title="GET IN TOUCH" des="">
+        <Contact />
       </Box>
       <Footer />
     </div>

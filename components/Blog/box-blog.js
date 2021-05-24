@@ -62,9 +62,6 @@ export default function BoxBlog({ blog }) {
           font-weight: 900;
           font-size: 19px;
           line-height: 29px;
-
-          /* Grey */
-
           color: #292b33;
         }
       `}</style>

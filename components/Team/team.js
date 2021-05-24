@@ -33,9 +33,6 @@ export default function Team() {
     <section class="section area-padding-top" id="team">
       <div class="container">
         <div class="row text-center">
-          <div class="col-12">
-            <h4 class="section-title text-center ">OUR TEAM</h4>
-          </div>
           {member.map((member) => {
             return <Member key={member.id} member={member} />;
           })}

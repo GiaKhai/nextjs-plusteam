@@ -2,13 +2,10 @@
 
 export default function Contact() {
   return (
-    <section className="section area-padding-top" id="contact">
+    <section className="section" id="contact">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h4 className="section-title text-center padding-b-50">
-              GET IN TOUCH
-            </h4>
             <div className="contact-box">
               <div className="col-lg-6">
                 <div className="infor">
@@ -78,11 +75,11 @@ export default function Contact() {
                   <h5>Let's Connect!</h5>
                 </div>
                 <a href="https://www.linkedin.com/company/plusteam-global/">
-                  <img className="mb-5" src="/static/img/in.svg" alt="in" />
+                  <img src="/static/img/in.svg" alt="in" />
                 </a>
                 <a href="https://www.facebook.com/plusteamglobal">
                   <img
-                    className="mb-5 ml-1"
+                    className="ml-1"
                     src="/static/img/facebook.svg"
                     alt="facebook"
                   />
@@ -144,7 +141,6 @@ export default function Contact() {
       <style jsx>{`
         .contact-box {
           width: 100%;
-          height: 73%;
           box-shadow: 0px 5px 40px rgb(30 73 132 / 10%);
           border-radius: 25px;
           padding: 30px 10px;
