@@ -3,10 +3,10 @@
 import Head from "next/head";
 import Blog from "../components/Blog/blog";
 import Box from "../components/Box/Box";
-import Candidate from "../components/candidate";
-import Crypto from "../components/crypto";
+import Candidate from "../components/Candidate/candidate";
+import Crypto from "../components/Crypto/crypto";
 import Footer from "../components/Footer/Footer";
-import Navbar from "../components/navbar";
+import Navbar from "../components/Navbar/navbar";
 import Pricing from "../components/Pricing/pricing";
 import Process from "../components/Process/process";
 import Services from "../components/Service/service";
@@ -68,9 +68,21 @@ export default function Home() {
       <Box title="WORK PROCESS" des="">
         <Process />
       </Box>
-      <Crypto />
-      <Candidate />
-      <Blog />
+      <Box
+        title="Crypto Payment Allowance"
+        des="We accepted payment via Crypto currency USDT, BNB, BTC, ETH"
+      >
+        <Crypto />
+      </Box>
+      <Box
+        title="Top talent candidates"
+        des="Guarantee for top talents from leading universities and tech-driven companies"
+      >
+        <Candidate />
+      </Box>
+      <Box title="BLOG" des="">
+        <Blog />
+      </Box>
       <Footer />
     </div>
   );

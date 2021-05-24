@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer-area ">
+      <footer className="footer-area mt-50">
         <div className="container ">
           <div className="row">
             <div className="col-lg-3 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
