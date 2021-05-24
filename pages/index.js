@@ -1,15 +1,15 @@
 /** @format */
 
 import Head from "next/head";
-import Image from "next/image";
-import AIPlatform from "../components/ai";
+import Blog from "../components/Blog/blog";
 import Box from "../components/Box/Box";
+import Candidate from "../components/candidate";
+import Crypto from "../components/crypto";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/navbar";
 import Pricing from "../components/Pricing/pricing";
 import Process from "../components/Process/process";
 import Services from "../components/Service/service";
-import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 
 export default function Home() {
@@ -68,6 +68,9 @@ export default function Home() {
       <Box title="WORK PROCESS" des="">
         <Process />
       </Box>
+      <Crypto />
+      <Candidate />
+      <Blog />
       <Footer />
     </div>
   );
