@@ -26,19 +26,10 @@ export default function Blog() {
     },
   ];
   return (
-    <section className="service-area">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <h4 className="section-title text-center padding-t-100 margin-b-50">
-              BLOG
-            </h4>
-          </div>
-          {dataBlog?.map((blog) => {
-            return <BoxBlog key={blog.id} blog={blog} />;
-          })}
-        </div>
-      </div>
-    </section>
+    <div className="row">
+      {dataBlog?.map((blog) => {
+        return <BoxBlog key={blog.id} blog={blog} />;
+      })}
+    </div>
   );
 }

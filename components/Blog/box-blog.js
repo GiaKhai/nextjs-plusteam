@@ -25,6 +25,29 @@ export default function BoxBlog({ blog }) {
           background-repeat: no-repeat;
           transition: all 300ms linear 0s;
         }
+        .single-service p {
+          font-family: Avenir;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 17px;
+          line-height: 23px;
+
+          /* White */
+
+          color: black;
+        }
+        .single-service:hover {
+          background: rgba(9, 73, 137, 1);
+        }
+        .single-service:hover h5 {
+          color: #fdb31c;
+        }
+        .single-service:hover p {
+          color: #fff;
+        }
+        .single-service:hover a {
+          color: #fdb31c;
+        }
         .service-icon img {
           max-width: 100%;
           border-top-left-radius: 25px;
@@ -34,10 +57,15 @@ export default function BoxBlog({ blog }) {
           margin: 15px 20px;
         }
         .service-content h5 {
-          font-size: 18px;
-          font-weight: 600;
-          color: #1d1d1d;
-          margin-bottom: 18px;
+          font-family: Avenir;
+          font-style: normal;
+          font-weight: 900;
+          font-size: 19px;
+          line-height: 29px;
+
+          /* Grey */
+
+          color: #292b33;
         }
       `}</style>
     </div>
