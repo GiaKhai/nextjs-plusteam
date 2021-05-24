@@ -79,7 +79,7 @@ export default function Contact() {
                 </a>
                 <a href="https://www.facebook.com/plusteamglobal">
                   <img
-                    className="ml-1"
+                    className=" ml-1"
                     src="/static/img/facebook.svg"
                     alt="facebook"
                   />
