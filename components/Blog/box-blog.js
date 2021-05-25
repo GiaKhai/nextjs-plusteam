@@ -1,5 +1,5 @@
 /** @format */
-
+import Link from "next/link";
 export default function BoxBlog({ blog }) {
   return (
     <div className="col-md-6 col-lg-4">
@@ -10,7 +10,14 @@ export default function BoxBlog({ blog }) {
         <div className="service-content">
           <h5>{blog.title}</h5>
           <p>{blog.content}</p>
-          <a href="blog-detail.html">Read More &gt;</a>
+          <Link
+            className="read"
+            key={blog.id}
+            as={`/blog/${blog.title}`}
+            href={"/blog/" + blog.id}
+          >
+            Read more
+          </Link>{" "}
         </div>
       </div>
       <style jsx>{`
@@ -31,9 +38,6 @@ export default function BoxBlog({ blog }) {
           font-weight: 500;
           font-size: 17px;
           line-height: 23px;
-
-          /* White */
-
           color: black;
         }
         .single-service:hover {
@@ -45,7 +49,7 @@ export default function BoxBlog({ blog }) {
         .single-service:hover p {
           color: #fff;
         }
-        .single-service:hover a {
+        .single-service:hover .read {
           color: #fdb31c;
         }
         .service-icon img {

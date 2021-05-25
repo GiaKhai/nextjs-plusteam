@@ -1,20 +1,11 @@
 /** @format */
-import Head from "next/head";
-import Blog from "../components/Blog/blog";
-import Box from "../components/Box/Box";
-import Candidate from "../components/Candidate/candidate";
-import Contact from "../components/Contact/contact";
-import Crypto from "../components/Crypto/crypto";
-import Footer from "../components/Footer/Footer";
-import Navbar from "../components/Navbar/navbar";
-import Pricing from "../components/Pricing/pricing";
-import Process from "../components/Process/process";
-import Services from "../components/Service/service";
-import Team from "../components/Team/team";
-import TopTalent from "../components/TopTalent/TopTalent";
-import Trusted from "../components/Trusted/trusted";
 
-export default function Home() {
+import Head from "next/head";
+import Navbar from "../../components/Navbar/navbar";
+import Footer from "../../components/Footer/Footer";
+import BlogPage from "../../components/BlogPage/blog-page";
+
+export default function Blog() {
   return (
     <div>
       <Head>
@@ -60,47 +51,8 @@ export default function Home() {
         />
       </Head>
       <Navbar />
-      <TopTalent />
-      <Trusted />
-      <Box
-        title="OUR SERVICES"
-        des="PlusTeam assists companies to build their technology teams in Vietnam."
-      >
-        <Services />
-      </Box>
-      <Box title="OUR PRICING" des="">
-        <Pricing />
-      </Box>
-      <Box title="WORK PROCESS" des="">
-        <Process />
-      </Box>
-      <Box title="OUR TEAM" des="">
-        <Team />
-      </Box>
-      <Box
-        title="Crypto Payment Allowance"
-        des="We accepted payment via Crypto currency USDT, BNB, BTC, ETH"
-      >
-        <Crypto />
-      </Box>
-      <Box
-        title="Top talent candidates"
-        des="Guarantee for top talents from leading universities and tech-driven companies"
-      >
-        <Candidate />
-      </Box>
-      <Box title="BLOG" des="">
-        <Blog />
-      </Box>
-      <Box title="GET IN TOUCH" des="">
-        <Contact />
-      </Box>
+      <BlogPage />
       <Footer />
-      <style jsx>{`
-        .header.scrolled {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </div>
   );
 }

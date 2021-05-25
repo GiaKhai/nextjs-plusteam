@@ -21,33 +21,44 @@ export default function TopTalent() {
           background: #ffffff;
           box-shadow: 0px 5px 40px rgb(30 73 132 / 10%);
           height: 200px;
-          width: 100%;
+          width: 140px;
           margin-top: 10px;
           border-radius: 5px;
           display: block;
         }
+        .box-talent .content-talent {
+          padding: 6px;
+        }
         .name {
-          font-family: Avenir;
-          font-style: normal;
-          font-weight: 800;
-          font-size: 19px;
-          line-height: 26px;
-          /* identical to box height */
-
-          /* PlusTeamBlue */
-
           color: #094989;
+          font-weight: 600;
+          font-size: 14px;
         }
         .job {
-          font-family: Avenir;
-          font-style: normal;
           font-weight: 500;
-          font-size: 14px;
-          line-height: 23px;
-
-          /* Grey */
-
-          color: #292b33;
+          font-size: 12px;
+        }
+        @media (max-width: 575px) {
+          .box-talent {
+            height: auto;
+            width: auto;
+            display: flex;
+          }
+          img {
+            max-width: 140px;
+          }
+          .content-talent {
+            padding: 20px !important;
+          }
+          .name {
+            color: #094989;
+            font-weight: 600;
+            font-size: 25px;
+          }
+          .job {
+            font-weight: 500;
+            font-size: 15px;
+          }
         }
       `}</style>
     </div>

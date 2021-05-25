@@ -50,3 +50,11 @@ a {
 .mt-50 {
   margin-top: 50px;
 }
+
+@media (max-width: 575px) {
+  .box-talent {
+    height: auto;
+    width: auto;
+    display: flex;
+  }
+}

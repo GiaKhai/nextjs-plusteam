@@ -1,6 +1,31 @@
 /** @format */
+import BoxBlog from "../Blog/box-blog";
+import { useRouter } from "next/router";
 
 export default function BlogPage() {
+  var dataBlog = [
+    {
+      id: "1",
+      title: "Hire Remote Developers in Vietnam to Build Your Killer Product",
+      content:
+        "Remote talent has simply become a necessity, particularly for startups. Unfortunately, hiring remote developers in another country is not always easy.",
+      image: "/static/img/blog/blog1.png",
+    },
+    {
+      id: "2",
+      title: "Coworking Spaces for Tech Teams in Saigon",
+      content:
+        "The working location of your tech team can make a big difference to their satisfaction and even your company’s ability to attract talent.",
+      image: "/static/img/blog/blog2.png",
+    },
+    {
+      id: "3",
+      title: "Why Vietnam?",
+      content: "Consider Vietnam as an example of an emerging market.",
+      image: "/static/img/blog/blog3.png",
+    },
+  ];
+
   return (
     <div>
       <section className="section mt-5">
@@ -43,109 +68,11 @@ export default function BlogPage() {
                 BLOG
               </h4>
             </div>
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog1.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>
-                    Hire Remote Developers in Vietnam to Build Your Killer
-                    Product
-                  </h5>
-                  <p>
-                    Remote talent has simply become a necessity, particularly
-                    for startups. Unfortunately, hiring remote developers in
-                    another country is not always easy.
-                  </p>
-                  <a href="blog-detail.html">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
-            {/* Single service */}
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog2.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>Coworking Spaces for Tech Teams in Saigon</h5>
-                  <p>
-                    The working location of your tech team can make a big
-                    difference to their satisfaction and even your company’s
-                    ability to attract talent.
-                  </p>
-                  <a href="blog-detail.html">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog3.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>Why Vietnam</h5>
-                  <p>
-                    Vietnam’s Law on Enterprise and Law on Investment
-                    implemented in 2015, define all market entry options. We
-                    have outlined the most common form...
-                  </p>
-                  <a href="">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="row margin-t-30">
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog3.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>10 Best Tips To Run A Team For Startup Company</h5>
-                  <p>
-                    Remote talent has simply become a necessity, particularly
-                    for startups. Unfortunately, hiring remote developers in
-                    another country ...
-                  </p>
-                  <a href="">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog3.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>2021 Technology Trends Report</h5>
-                  <p>
-                    Here are the 2021 Technology Trends Report by Data. The
-                    working location of your tech team can make a big difference
-                    to their satisfaction and even your company’s ability to
-                    attract talent...
-                  </p>
-                  <a href="blog-detail.html">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4">
-              <div className="single-service">
-                <div className="service-icon">
-                  <img src="img/blog/blog3.png" alt="" />
-                </div>
-                <div className="service-content">
-                  <h5>Why Should We Go Digital?</h5>
-                  <p>
-                    DIgital have become trend in the world. Vietnam’s Law on
-                    Enterprise and Law on Investment implemented in 2015, define
-                    all market entry options. We have outlined the most...
-                  </p>
-                  <a href="blog-detail.html">Read More &gt;&gt;</a>
-                </div>
-              </div>
-            </div>
+            {dataBlog.map((blog) => {
+              return <BoxBlog blog={blog}></BoxBlog>;
+            })}
           </div>
           <div className="col-lg-8 offset-lg-2 text-center pt-5">
             <a

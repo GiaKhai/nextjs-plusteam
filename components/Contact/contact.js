@@ -73,17 +73,17 @@ export default function Contact() {
                     <p>support@plusteam.io</p>
                   </div>
                   <h5>Let's Connect!</h5>
+                  <a href="https://www.linkedin.com/company/plusteam-global/">
+                    <img src="/static/img/in.svg" alt="in" />
+                  </a>
+                  <a href="https://www.facebook.com/plusteamglobal">
+                    <img
+                      className=" ml-1"
+                      src="/static/img/facebook.svg"
+                      alt="facebook"
+                    />
+                  </a>
                 </div>
-                <a href="https://www.linkedin.com/company/plusteam-global/">
-                  <img src="/static/img/in.svg" alt="in" />
-                </a>
-                <a href="https://www.facebook.com/plusteamglobal">
-                  <img
-                    className=" ml-1"
-                    src="/static/img/facebook.svg"
-                    alt="facebook"
-                  />
-                </a>
               </div>
               <div className="col-lg-6">
                 <form action id="contactForm" method="post">
@@ -170,6 +170,14 @@ export default function Contact() {
         }
         .row svg {
           margin-right: 10px;
+        }
+        @media (max-width: 575px) {
+          .contact-box {
+            display: block;
+          }
+          .infor {
+            margin-bottom: 10px;
+          }
         }
       `}</style>
     </section>

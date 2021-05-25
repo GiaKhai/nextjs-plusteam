@@ -30,7 +30,7 @@ export default function Team() {
     },
   ];
   return (
-    <section class="section area-padding-top" id="team">
+    <section class="section" id="team">
       <div class="container">
         <div class="row text-center">
           {member.map((member) => {

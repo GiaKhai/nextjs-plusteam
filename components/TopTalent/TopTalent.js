@@ -5,7 +5,7 @@ import TalentItem from "./TalentItem";
 export default function TopTalent() {
   return (
     <div>
-      <section className="about-area" id="home">
+      <section className="about-area pt-3" id="home">
         <div className="container">
           <div className="row ">
             <div className="col-lg-5">
@@ -79,12 +79,27 @@ export default function TopTalent() {
             font-size: 18px;
             line-height: 34px;
             text-align: justify;
-
-            /* PlusTeamBlue */
-
             color: #094989;
           }
           button {
+            width: 200px;
+          }
+          @media (max-width: 575px) {
+            h4 {
+              font-size: 35px;
+              margin-bottom: 5px;
+            }
+            button {
+              text-align: center;
+              margin-top: 10px;
+              margin-left: 20%;
+            }
+            .name {
+              font-weight: 600;
+              margin-top: 15px;
+              margin-bottom: 10px;
+              font-size: 23px;
+            }
           }
         `}
       </style>
