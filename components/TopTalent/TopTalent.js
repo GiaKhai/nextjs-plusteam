@@ -1,6 +1,7 @@
 /** @format */
 
 import Head from "next/head";
+import Link from "next/link";
 import TalentItem from "./TalentItem";
 export default function TopTalent() {
   return (
@@ -35,9 +36,9 @@ export default function TopTalent() {
                   <a href="">
                     <button
                       type="button"
-                      className="btn btn-outline-warning btn-hiring "
+                      className="btn btn-outline-warning btn-hiring"
                     >
-                      Become A Client
+                      <Link href="/hire/"> Become A Client</Link>
                     </button>
                   </a>
                 </div>

@@ -1,11 +1,13 @@
 /** @format */
 
+import React from "react";
 import Head from "next/head";
-import Navbar from "../../components/Navbar/navbar";
-import Footer from "../../components/Footer/Footer";
-import BlogPage from "../../components/BlogPage/blog-page";
+import Footer from "../components/Footer/Footer";
+import Navbar from "../components/Navbar/navbar";
+import Become from "../components/hire/become.js";
+import FooterQuestion from "../components/hire/footerQuestion";
 
-export default function Blog() {
+function Hire(props) {
   return (
     <div>
       <Head>
@@ -16,7 +18,6 @@ export default function Blog() {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
         />
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -52,8 +53,11 @@ export default function Blog() {
         />
       </Head>
       <Navbar />
-      <BlogPage />
+      <Become />
+      <FooterQuestion />
       <Footer />
     </div>
   );
 }
+
+export default Hire;

@@ -108,8 +108,6 @@ export default function BlogPage() {
                   className="form-control email-box"
                   name="EMAIL"
                   placeholder="Email "
-                  onfocus="this.placeholder = ''"
-                  onblur="this.placeholder = 'Email '"
                 />
                 <div className="input-group-append">
                   <a className="btn-sub" href="#">

@@ -2,10 +2,10 @@
 
 export default function Member({ member }) {
   return (
-    <div class="col-sm-6 col-lg-4">
-      <div class="single-pricing ">
+    <div className="col-sm-6 col-lg-4">
+      <div className="single-pricing ">
         <img src={member.image} alt="DatVo" />
-        <div class="single-pricing-content">
+        <div className="single-pricing-content">
           <h4>{member.name}</h4>
           <h5>{member.position}</h5>
           <span>{member.describe}</span>

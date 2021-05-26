@@ -2,8 +2,8 @@
 export default function Footer() {
   return (
     <div>
-      <footer className="footer-area mt-50">
-        <div className="container ">
+      <footer className="footer-area">
+        <div className="container">
           <div className="row">
             <div className="col-lg-3 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
               <img src="./../static/img/logo/Logo-footer.svg" alt="Plusteam" />
@@ -65,8 +65,6 @@ export default function Footer() {
                         className="form-control"
                         name="EMAIL"
                         placeholder="Your Email Address"
-                        onfocus="this.placeholder = ''"
-                        onblur="this.placeholder = 'Your Email Address '"
                       />
                       <div className="input-group-append">
                         <button className="btn click-btn" type="submit">
