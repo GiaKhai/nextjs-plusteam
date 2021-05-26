@@ -49,6 +49,7 @@ export default function TopTalent() {
           }
           .content-talent {
             padding: 20px !important;
+            margin: auto;
           }
           .name {
             color: #094989;
