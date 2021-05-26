@@ -91,7 +91,7 @@ export default function Contact() {
                     <div className="col-sm-12">
                       <div className="form-group">
                         <input
-                          className="form-control"
+                          className="form-control name"
                           name="name"
                           id="name"
                           type="text"
@@ -102,7 +102,7 @@ export default function Contact() {
                     <div className="col-sm-12">
                       <div className="form-group">
                         <input
-                          className="form-control"
+                          className="form-control mail"
                           name="email"
                           id="email"
                           type="email"
@@ -139,6 +139,24 @@ export default function Contact() {
         </div>
       </div>
       <style jsx>{`
+        .name {
+          background-repeat: no-repeat;
+          background-position: 7px center;
+          text-indent: 20px;
+          background-image: url(./../static/img/yellow-people.png);
+        }
+        .mail {
+          background-repeat: no-repeat;
+          background-position: 7px center;
+          text-indent: 20px;
+          background-image: url(./../static/img/yellow-mail.png);
+        }
+        .textarea {
+          background-repeat: no-repeat;
+          background-position: 7px 10px;
+          text-indent: 20px;
+          background-image: url(/static/img/yellow-pen.png);
+        }
         .contact-box {
           width: 100%;
           box-shadow: 0px 5px 40px rgb(30 73 132 / 10%);

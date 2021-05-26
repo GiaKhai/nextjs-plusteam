@@ -2,7 +2,7 @@
 import Link from "next/link";
 export default function BoxBlog({ blog }) {
   return (
-    <div className="col-md-6 col-lg-4">
+    <div className="col-md-6 col-lg-4 mt-25">
       <div className="single-service">
         <div className="service-icon">
           <img src={blog.image} alt="" />
@@ -17,7 +17,7 @@ export default function BoxBlog({ blog }) {
             href={"/blog/" + blog.id}
           >
             Read more
-          </Link>{" "}
+          </Link>
         </div>
       </div>
       <style jsx>{`
@@ -52,6 +52,9 @@ export default function BoxBlog({ blog }) {
         .single-service:hover .read {
           color: #fdb31c;
         }
+        a:hover {
+          color: #fdb31c !important;
+        }
         .service-icon img {
           max-width: 100%;
           border-top-left-radius: 25px;
@@ -59,6 +62,9 @@ export default function BoxBlog({ blog }) {
         }
         .service-content {
           margin: 15px 20px;
+        }
+        .service-content:hover {
+          color: #fdb31c !important;
         }
         .service-content h5 {
           font-family: Avenir;

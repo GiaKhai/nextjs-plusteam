@@ -70,7 +70,7 @@ export default function Footer() {
                       />
                       <div className="input-group-append">
                         <button className="btn click-btn" type="submit">
-                          <i className="fab fa-telegram-plane"></i>
+                          <img src="./../static/img/telegram.svg"></img>
                         </button>
                       </div>
                     </div>
@@ -99,6 +99,9 @@ export default function Footer() {
             /* White */
 
             color: #ffffff;
+          }
+          img {
+            margin-bottom: 7px;
           }
           ul {
             padding: 0px;
