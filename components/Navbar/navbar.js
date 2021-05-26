@@ -1,5 +1,5 @@
 /** @format */
-import Link from "next/link";
+
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 export default function Navbar() {
@@ -29,7 +29,19 @@ export default function Navbar() {
               <a className="navbar-brand logo_h" href="/">
                 <img src="../static/img/logo/Logo-header.svg" alt="" />
               </a>
-
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
               <div
                 className="collapse navbar-collapse offset"
                 id="navbarSupportedContent"
@@ -80,6 +92,7 @@ export default function Navbar() {
         .header {
           z-index: 99;
         }
+
         .scrolled {
           background-color: rgba(0, 0, 0, 0.5);
           position: fixed;
@@ -87,6 +100,7 @@ export default function Navbar() {
           top: 0;
           left: 0;
         }
+
         .header_area .navbar .nav .nav-item .nav-link {
           color: #094989;
           font-weight: 750;
@@ -111,6 +125,24 @@ export default function Navbar() {
         }
         .header_area.navbar_fixed .main_menu .navbar .nav .nav-item .nav-link {
           line-height: 70px;
+        }
+        button {
+          border: none;
+        }
+        .icon-bar {
+          display: block;
+          width: 25px;
+          height: 3px;
+          background: #f84b67;
+          margin: auto;
+          margin-bottom: 4px;
+          transition: all 400ms linear;
+          cursor: pointer;
+        }
+        @media (max-width: 991px) {
+          .header_area .navbar {
+            background: #000;
+          }
         }
       `}</style>
     </div>

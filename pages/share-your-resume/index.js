@@ -1,11 +1,11 @@
 /** @format */
 
 import Head from "next/head";
-import Navbar from "../../components/Navbar/navbar";
+import Box from "../../components/Box/Box";
 import Footer from "../../components/Footer/Footer";
-import BlogPage from "../../components/BlogPage/blog-page";
-
-export default function Blog() {
+import Navbar from "../../components/Navbar/navbar";
+import JD from "./../../components/ShareYourResume/JD-item";
+export default function ShareYourResume() {
   return (
     <div>
       <Head>
@@ -30,7 +30,6 @@ export default function Blog() {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
         />
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -56,17 +55,19 @@ export default function Blog() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Bebas Neue"
         ></link>
-        {/* <link
+        <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        ></link> */}
+        ></link>
         <link
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet"
         />
       </Head>
       <Navbar />
-      <BlogPage />
+      <Box title="FIND YOUR DREAM JOB" des="">
+        <JD />
+      </Box>
       <Footer />
     </div>
   );

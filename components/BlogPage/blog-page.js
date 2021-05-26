@@ -1,7 +1,6 @@
 /** @format */
-import BoxBlog from "../Blog/box-blog";
-import { useRouter } from "next/router";
-
+import Box from "./../Box/Box";
+import Blog from "./../Blog/blog";
 export default function BlogPage() {
   var dataBlog = [
     {
@@ -31,7 +30,10 @@ export default function BlogPage() {
       <section className="section mt-5">
         <div className="container">
           <div className="row blog-box">
-            <div className="col-lg-6" style={{ padding: "0px !important" }}>
+            <div
+              className="col-lg-6 col-lg-4"
+              style={{ padding: "0px !important" }}
+            >
               <img
                 src="/static/img/blog/blog1.png"
                 className="img-lastest"
@@ -60,30 +62,9 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
-      <section className="service-area">
-        <div className="container">
-          <div className="row margin-t-30">
-            <div className="col-12">
-              <h4 className="section-title text-center padding-t-100 margin-b-50">
-                BLOG
-              </h4>
-            </div>
-          </div>
-          <div className="row margin-t-30">
-            {dataBlog.map((blog) => {
-              return <BoxBlog blog={blog}></BoxBlog>;
-            })}
-          </div>
-          <div className="col-lg-8 offset-lg-2 text-center pt-5">
-            <a
-              className="btn btn-outline-warning btn-hiring text-center"
-              href="#"
-            >
-              Read More{" "}
-            </a>
-          </div>
-        </div>
-      </section>
+      <Box title="BLOG" des="">
+        <Blog />
+      </Box>
       <section className="section pt-5">
         <div className="container">
           <div className="row">
@@ -174,8 +155,14 @@ export default function BlogPage() {
           color: #292b33;
         }
         .img-lastest {
-          max-height: 100%;
           border-radius: 25px;
+          width: 80%;
+        }
+        @media (max-width: 991px) {
+          .img-lastest {
+            border-radius: 25px;
+            width: 100%;
+          }
         }
         .text-yellow {
           font-family: Avenir;
