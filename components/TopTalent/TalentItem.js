@@ -1,15 +1,13 @@
 /** @format */
 
-import Head from "next/head";
-
-export default function TopTalent() {
+export default function TopTalent({ talent }) {
   return (
     <div className="col-sm-6 col-lg-3">
       <div className="box-talent">
-        <img src="./../static/img/talent/quangtran.jpg" alt="talent" />
+        <img src={talent.avt} alt="talent" />
         <div className="content-talent">
-          <div className="name">Quang Tran</div>
-          <div className="job">Full Stack Developer </div>
+          <div className="name">{talent.name}</div>
+          <div className="job">{talent.regency}</div>
         </div>
       </div>
 

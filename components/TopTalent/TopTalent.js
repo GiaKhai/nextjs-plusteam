@@ -3,7 +3,17 @@
 import Head from "next/head";
 import Link from "next/link";
 import TalentItem from "./TalentItem";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 export default function TopTalent() {
+  const [data, setData] = useState([]);
+
+  useEffect(async () => {
+    const result = await axios.get("http://ef397a150cc0.ngrok.io/api/talent/");
+    setData(result.data);
+    console.log(result.data);
+  }, []);
   return (
     <div>
       <section className="about-area pt-3" id="home">
@@ -23,7 +33,7 @@ export default function TopTalent() {
               </div>
               <div className="row">
                 <div className="col-md-6 col-lg-6">
-                  <a href="">
+                  <a href="/share-your-resume/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring "
@@ -33,12 +43,12 @@ export default function TopTalent() {
                   </a>
                 </div>
                 <div className="col-md-6 col-lg-6">
-                  <a href="">
+                  <a href="/hire/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring"
                     >
-                      <Link href="/hire/"> Become A Client</Link>
+                      Become A Client
                     </button>
                   </a>
                 </div>
@@ -46,14 +56,9 @@ export default function TopTalent() {
             </div>
             <div className="col-lg-7">
               <div className="row">
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
-                <TalentItem />
+                {data.map((talent) => {
+                  return <TalentItem key={talent.id} talent={talent} />;
+                })}
               </div>
             </div>
           </div>
@@ -62,6 +67,9 @@ export default function TopTalent() {
 
       <style jsx>
         {`
+          Link:hover {
+            color: #ffffff;
+          }
           .btn-hiring:hover {
             color: #ffffff;
             background: rgba(253, 179, 28, 1);

@@ -6,7 +6,7 @@ export default function BoxService({ services }) {
       <div className="box-service">
         <img src={services.image} alt="service" />
         <h4 className="services-title padding-t-15">{services.title}</h4>
-        <p className="services-content">{services.content}</p>
+        <p className="services-content">{services.description}</p>
       </div>
       <style jsx>{`
         .box-service {
