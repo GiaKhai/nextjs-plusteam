@@ -9,7 +9,7 @@ import FooterQuestion from "../components/hire/footerQuestion";
 
 function Hire(props) {
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       <Head>
         <title>PlusTeam</title>
         <meta name="description" content="PlusTeam Global" />

@@ -86,6 +86,9 @@ export default function Footer() {
           .footer-area {
             padding-top: 40px;
             background: #094989;
+            left: 0;
+            bottom: 0;
+            width: 100%;
           }
           h4 {
             font-family: Avenir;
@@ -93,9 +96,6 @@ export default function Footer() {
             font-weight: 900;
             font-size: 21px;
             line-height: 29px;
-
-            /* White */
-
             color: #ffffff;
           }
           img {
@@ -111,9 +111,6 @@ export default function Footer() {
             font-weight: normal;
             font-size: 19px;
             line-height: 26px;
-
-            /* White */
-
             color: #ffffff;
             padding: 15px 0;
           }

@@ -1,12 +1,12 @@
 /** @format */
 
-export default function BoxService({ services }) {
+export default function BoxService({ service }) {
   return (
     <div className="col-lg-4">
       <div className="box-service">
-        <img src={services.image} alt="service" />
-        <h4 className="services-title padding-t-15">{services.title}</h4>
-        <p className="services-content">{services.content}</p>
+        <img src={service.image} alt="service" />
+        <h4 className="services-title padding-t-15">{service.title}</h4>
+        <p className="services-content">{service.description}</p>
       </div>
       <style jsx>{`
         .box-service {
