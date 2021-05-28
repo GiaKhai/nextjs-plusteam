@@ -15,7 +15,10 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 
-export default function Home() {
+export default function Home({ talent, service }) {
+  console.log(service);
+  console.log(talent);
+
   return (
     <div>
       <Head>
@@ -75,13 +78,14 @@ export default function Home() {
         />
       </Head>
       <Navbar />
-      <TopTalent />
+
+      <TopTalent talent={talent} />
       <Trusted />
       <Box
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        <Services />
+        <Services services={service} />
       </Box>
       <Box title="OUR PRICING" des="">
         <Pricing />
@@ -119,4 +123,15 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const result = await fetch("http://127.0.0.1:8000/api/talent/");
+  const res = await fetch("http://127.0.0.1:8000/api/service/");
+
+  const talent = await result.json();
+  const service = await res.json();
+  return {
+    props: { talent, service },
+  };
 }
