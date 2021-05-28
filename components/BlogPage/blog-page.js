@@ -197,14 +197,18 @@ export default function BlogPage() {
         }
         .btn-sub {
           border-radius: 24px;
-          padding: 6px 8px;
+          padding: 6px 15px;
           background-color: #fdb31c;
           border-color: #fdb31c;
-          line-height: 28px;
+          line-height: 33px;
           color: white;
+          margin: auto;
           font-weight: 700;
           text-transform: capitalize;
           z-index: 999;
+        }
+        .btn-sub:hover {
+          color: white !important;
         }
         .email-box {
           border: 1px solid #fdb31c;

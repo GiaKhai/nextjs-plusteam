@@ -2,11 +2,15 @@
 
 import classNames from "classnames";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState();
   const classes = classNames("header", {
     scrolled: scrolled,
   });
+
   useEffect((_) => {
     const handleScroll = (_) => {
       if (window.pageYOffset > 1) {
@@ -20,13 +24,14 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <div className={classes}>
       <header className="header_area">
         <div className="main_menu">
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
-              <a className="navbar-brand logo_h" href="/">
+              <a className="navbar-brand logo_h" href="#">
                 <img src="../static/img/logo/Logo-header.svg" alt="" />
               </a>
               <button
@@ -48,39 +53,39 @@ export default function Navbar() {
               >
                 <ul className="nav navbar-nav menu_nav ml-auto ">
                   <li className="nav-item">
-                    <a className="nav-link" href="">
-                      Home
-                    </a>
+                    <Link href="/" className="nav-link">
+                      <a className="nav-link ">Home</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#services">
-                      Services
-                    </a>
+                    <Link href="/#services">
+                      <a className="nav-link ">Services</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#features">
-                      Features
-                    </a>
+                    <Link href="/#AI">
+                      <a className="nav-link ">Features</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#pricing">
-                      Pricing
-                    </a>
+                    <Link href="/#pricing">
+                      <a className="nav-link ">Pricing</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#team">
-                      Team
-                    </a>
+                    <Link href="/#team">
+                      <a className="nav-link ">Team</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/blog/">
-                      Blog
-                    </a>
+                    <Link className="nav-link" href="/blog/">
+                      <a className="nav-link ">Blog</a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#contact">
-                      Contact
-                    </a>
+                    <Link href="/#contact">
+                      <a className="nav-link ">Contact</a>
+                    </Link>
                   </li>
                 </ul>
               </div>

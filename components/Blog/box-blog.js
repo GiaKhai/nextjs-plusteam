@@ -61,7 +61,7 @@ export default function BoxBlog({ blog }) {
           border-top-right-radius: 25px;
         }
         .service-content {
-          margin: 15px 20px;
+          padding: 15px 20px;
         }
         .service-content:hover {
           color: #fdb31c !important;
