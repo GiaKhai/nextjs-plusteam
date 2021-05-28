@@ -113,13 +113,13 @@ export default function Home({ talent, service }) {
   );
 }
 
-export async function getStaticProps() {
-  const result = await fetch("http://127.0.0.1:8000/api/talent/");
-  const res = await fetch("http://127.0.0.1:8000/api/service/");
+// export async function getStaticProps() {
+//   // const result = await fetch("http://127.0.0.1:8000/api/talent/");
+//   // const res = await fetch("http://127.0.0.1:8000/api/service/");
 
-  const talent = await result.json();
-  const service = await res.json();
-  return {
-    props: { talent, service },
-  };
-}
+//   const talent = await result.json();
+//   const service = await res.json();
+//   return {
+//     props: { talent, service },
+//   };
+// }
