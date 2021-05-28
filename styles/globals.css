@@ -7,7 +7,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -43,6 +45,10 @@ a {
 
   font-weight: 700;
 }
+.btn-hiring:hover {
+  color: #ffffff;
+  background: rgba(253, 179, 28, 1);
+}
 
 .area-padding-top {
   padding-top: 50px;
@@ -63,4 +69,12 @@ a:hover {
     width: auto;
     display: flex;
   }
+}
+.nav-link {
+  cursor: pointer;
+  color: #094989 !important;
+  font-weight: 750;
+  padding-right: 25px;
+  display: inline-block;
+  font-size: 14px;
 }

@@ -1,6 +1,5 @@
 /** @format */
 
-import Head from "next/head";
 import Link from "next/link";
 import TalentItem from "./TalentItem";
 export default function TopTalent() {
@@ -23,24 +22,24 @@ export default function TopTalent() {
               </div>
               <div className="row">
                 <div className="col-md-6 col-lg-6">
-                  <a href="">
+                  <Link href="/share-your-resume/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring "
                     >
                       Share Your Resume
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-md-6 col-lg-6">
-                  <a href="">
+                  <Link href="/hire/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring"
                     >
-                      <Link href="/hire/"> Become A Client</Link>
+                      Become A Client
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -62,10 +61,6 @@ export default function TopTalent() {
 
       <style jsx>
         {`
-          .btn-hiring:hover {
-            color: #ffffff;
-            background: rgba(253, 179, 28, 1);
-          }
           h4 {
             font-size: 65px;
             color: #094989;

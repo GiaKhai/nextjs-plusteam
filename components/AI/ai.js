@@ -2,50 +2,36 @@
 
 export default function AIPlatform() {
   return (
-    <section className="section area-padding-top" id="features">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 offset-lg-2">
-            <h1 className="section-title text-center ">PLUSTEAM AI PLATFORM</h1>
-            <p className="text-sumary">
-              Where You can able to identify the right candidates based on our
-              Customer Requirements
-            </p>
-            <p></p>
-          </div>
-          <div className="col-lg-4">
-            <div className="image-box">
-              <img src="/static/img/AI/aiPlatform.svg" alt="AL" />
-            </div>
-          </div>
-          <div className="offset-lg-1 col-lg-7">
-            <div className="area-heading">
-              <p>
-                The innovations in AI for recruiting are intelligent screening
-                software that automates resume screening, recruiter chatbots
-                that engage candidates in real-time, and digitized interviews
-                that help assess a candidate’s fit.
-              </p>
-            </div>
-            <div className="row box-al">
-              <div className="col-lg-4 img-al">
-                <img src="/static/img/AI/ai1.svg" alt="ser1" />
-                <div className="al-flatform">
-                  Intelligent screening software
-                </div>
-              </div>
-              <div className="col-lg-4 img-al">
-                <img src="/static/img/AI/ai2.svg" alt="ser1" />
-                <div className="al-flatform">Recruiter chatbots</div>
-              </div>
-              <div className="col-lg-4 img-al">
-                <img src="/static/img/AI/ai3.svg" alt="ser1" />
-                <div className="al-flatform">Digitized interviews</div>
-              </div>
-            </div>
-          </div>
+    <div className="row">
+      <div className="col-lg-4">
+        <div className="image-box">
+          <img src="/static/img/AI/aiPlatform.svg" alt="AL" />
         </div>
       </div>
+      <div className="offset-lg-1 col-lg-7">
+        <div className="area-heading">
+          <p>
+            The innovations in AI for recruiting are intelligent screening
+            software that automates resume screening, recruiter chatbots that
+            engage candidates in real-time, and digitized interviews that help
+            assess a candidate’s fit.
+          </p>
+        </div>
+        <div className="row box-al">
+          <div className="col-lg-4 img-al">
+            <img src="/static/img/AI/ai1.svg" alt="ser1" />
+            <div className="al-flatform">Intelligent screening software</div>
+          </div>
+          <div className="col-lg-4 img-al">
+            <img src="/static/img/AI/ai2.svg" alt="ser1" />
+            <div className="al-flatform">Recruiter chatbots</div>
+          </div>
+          <div className="col-lg-4 img-al">
+            <img src="/static/img/AI/ai3.svg" alt="ser1" />
+            <div className="al-flatform">Digitized interviews</div>
+          </div>
+        </div>
+      </div>{" "}
       <style jsx>
         {`
           img {
@@ -77,6 +63,6 @@ export default function AIPlatform() {
           }
         `}
       </style>
-    </section>
+    </div>
   );
 }

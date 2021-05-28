@@ -3,7 +3,7 @@
 export default function Box(props) {
   return (
     <div>
-      <section className="section area-padding-top" id="services">
+      <section className="section area-padding-top" id={props.id}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8 offset-lg-2">
