@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
-import Blog from "../components/Blog/blog";
 import Box from "../components/Box/Box";
 import Candidate from "../components/Candidate/candidate";
 import Contact from "../components/Contact/contact";
