@@ -1,6 +1,8 @@
 /** @format */
 
-import TalentItem from "/components/TopTalent/TalentItem";
+import Link from "next/link";
+import TalentItem from "./TalentItem";
+
 import Head from "next/head";
 
 export default function TopTalent({ talent }) {
@@ -79,30 +81,30 @@ export default function TopTalent({ talent }) {
               </div>
               <div className="row">
                 <div className="col-md-6 col-lg-6">
-                  <a href="/share-your-resume/">
+                  <Link href="/share-your-resume/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring "
                     >
                       Share Your Resume
                     </button>
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-md-6 col-lg-6">
-                  <a href="/hire/">
+                  <Link href="/hire/">
                     <button
                       type="button"
                       className="btn btn-outline-warning btn-hiring"
                     >
                       Become A Client
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="col-lg-7">
               <div className="row">
-                {talent.map((talent) => {
+                {talent?.map((talent) => {
                   return <TalentItem key={talent.id} talent={talent} />;
                 })}
               </div>
@@ -119,6 +121,7 @@ export default function TopTalent({ talent }) {
             color: #ffffff;
             background: rgba(253, 179, 28, 1);
           }
+
           h4 {
             font-size: 65px;
             color: #094989;

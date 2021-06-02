@@ -86,7 +86,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="col-lg-6">
-                <form action id="contactForm" method="post">
+                <form id="contactForm" method="post">
                   <div className="row">
                     <div className="col-sm-12">
                       <div className="form-group">
@@ -126,6 +126,7 @@ export default function Contact() {
                   </div>
                   <div className="form-group mt-3">
                     <button
+                      style={{ width: "90px" }}
                       type="submit"
                       className="btn btn-outline-warning btn-hiring"
                     >

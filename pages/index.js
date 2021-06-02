@@ -1,7 +1,12 @@
 /** @format */
 import Head from "next/head";
+<<<<<<< HEAD
 import Link from "next/link";
 import BoxBlog from "../components/Blog/box-blog";
+=======
+import AIPlatform from "../components/AI/ai";
+import Blog from "../components/Blog/blog";
+>>>>>>> bcb05602825f79bc24fc433386e0462bfd72e066
 import Box from "../components/Box/Box";
 import Candidate from "../components/Candidate/candidate";
 import Contact from "../components/Contact/contact";
@@ -28,36 +33,16 @@ export default function Home({ talent, service, blog }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         />
-        <link rel="stylesheet" href="assets/css/style.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
         <title>PlusTeam</title>
         <meta name="description" content="PlusTeam Global" />
         <link rel="icon" href="/static/img/logo/Logo.svg" />
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        />
-        <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        ></script>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        ></script>
-        <script
-          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        ></script>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
-        />
+
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Avenir"
@@ -80,18 +65,26 @@ export default function Home({ talent, service, blog }) {
       <TopTalent talent={talent} />
       <Trusted />
       <Box
+        id="services"
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
         <Services services={service} />
       </Box>
-      <Box title="OUR PRICING" des="">
+      <Box title="OUR PRICING" des="" id="pricing">
         <Pricing />
       </Box>
-      <Box title="WORK PROCESS" des="">
+      <Box title="WORK PROCESS" des="" id="process">
         <Process />
       </Box>
-      <Box title="OUR TEAM" des="">
+      <Box
+        title="plusteam ai platform"
+        des="Where You can able to identify the right candidates based on our Customer Requirements."
+        id="AI"
+      >
+        <AIPlatform></AIPlatform>
+      </Box>
+      <Box title="OUR TEAM" des="" id="team">
         <Team />
       </Box>
       <Box
@@ -113,11 +106,9 @@ export default function Home({ talent, service, blog }) {
           })}
         </div>
       </Box>
-
       <Box title="GET IN TOUCH" des="">
         <Contact />
       </Box>
-
       <Footer />
       <style jsx>{`
         .header.scrolled {
