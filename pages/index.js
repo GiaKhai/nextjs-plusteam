@@ -1,12 +1,9 @@
 /** @format */
 import Head from "next/head";
-<<<<<<< HEAD
 import Link from "next/link";
 import BoxBlog from "../components/Blog/box-blog";
-=======
 import AIPlatform from "../components/AI/ai";
 import Blog from "../components/Blog/blog";
->>>>>>> bcb05602825f79bc24fc433386e0462bfd72e066
 import Box from "../components/Box/Box";
 import Candidate from "../components/Candidate/candidate";
 import Contact from "../components/Contact/contact";
