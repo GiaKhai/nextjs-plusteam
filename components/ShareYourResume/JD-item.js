@@ -1,50 +1,46 @@
-export default function JD() {
+/** @format */
+
+import Link from "next/link";
+
+export default function JD({ job }) {
+  console.log(job);
   return (
-    <div>
-      <div className="row mt-25">
-        <div className="col-md-6 col-lg-6  mt-25">
-          <div className="box-job">
-            <div className="row">
-              <div className="col col-lg-2"></div>
-              <div className="col col-lg-10">
-                <h4 className="question-title">RubyonRail</h4>
-
-                <div className="badge">Urgent</div>
-
-                <h5 className="company-name">Xfers</h5>
-
-                <div className="">
-                  <div className="row">
-                    <div className="col-lg-4" style={{ textAlign: "start" }}>
-                      <img
-                        src="./../static/img/dollar.png"
-                        style={{ margin: "0px 10px 5px 5px" }}
-                      />
-                      <span className="text-job">2500-4000</span>
-                    </div>
-                    <div className="col-lg-8">
-                      <img
-                        src="./../static/img/location.png"
-                        style={{ margin: "0px 10px 5px 5px" }}
-                      />
-                      <span className="text-job">
-                        District 1, Ho Chi Minh City
-                      </span>
-                    </div>
-                  </div>
+    <div className="col-6 mt-25">
+      <div className="box-job">
+        <div className="row">
+          <div className="col col-lg-2"></div>
+          <div className="col col-lg-10">
+            <h4 className="question-title">{job.title}</h4>
+            <div className="badge">Urgent</div>
+            <h5 className="company-name">{job.company}</h5>
+            <div className="">
+              <div className="row">
+                <div className="col-lg-4" style={{ textAlign: "start" }}>
+                  <img
+                    src="./../static/img/dollar.png"
+                    style={{ margin: "0px 10px 5px 5px" }}
+                  />
+                  <span className="text-job">{job.salary}</span>
+                </div>
+                <div className="col-lg-8">
+                  <img
+                    src="./../static/img/location.png"
+                    style={{ margin: "0px 10px 5px 5px" }}
+                  />
+                  <span className="text-job">{job.location}</span>
                 </div>
               </div>
             </div>
-            <div className="row pt-4">
-              <div className="col-lg-6">
-                <span className="mute-date">May 5, 2021, 10:54 a.m.</span>
-              </div>
-              <div className="col-lg-6 text">
-                <a className="job-view" href="3">
-                  View Job Description
-                </a>
-              </div>
-            </div>
+          </div>
+        </div>
+        <div className="row pt-4">
+          <div className="col-lg-6">
+            <span className="mute-date">{job.create_at}</span>
+          </div>
+          <div className="col-lg-6 text">
+            <Link href={"/job/" + job.id} key={job.id}>
+              View Job Description
+            </Link>
           </div>
         </div>
       </div>
@@ -103,7 +99,9 @@ export default function JD() {
         }
         .text {
           text-align: end;
+          color: #fdb31c !important;
         }
+
         @media (max-width: 991px) {
           .col-lg-10 {
             display: grid;

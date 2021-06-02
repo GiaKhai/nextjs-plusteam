@@ -1,11 +1,11 @@
 /** @format */
 
 import Head from "next/head";
-import Box from "../../components/Box/Box";
+import Link from "next/link";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 import JD from "./../../components/ShareYourResume/JD-item";
-export default function ShareYourResume() {
+export default function ShareYourResume({ job }) {
   return (
     <div>
       <Head>
@@ -65,10 +65,26 @@ export default function ShareYourResume() {
         />
       </Head>
       <Navbar />
-      <Box title="FIND YOUR DREAM JOB" des="">
-        <JD />
-      </Box>
+      <h1 className="section-title text-center text-blue mt-5">
+        FIND YOUR DREAM JOB
+      </h1>
+      <div className="container">
+        <div className="row">
+          {job.map((job) => {
+            return <JD job={job}></JD>;
+          })}
+        </div>
+      </div>
       <Footer />
     </div>
   );
+}
+export async function getStaticProps() {
+  const fetchJob = await fetch("http://localhost:8000/api/job/");
+
+  const job = await fetchJob.json();
+
+  return {
+    props: { job },
+  };
 }

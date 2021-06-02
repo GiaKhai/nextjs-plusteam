@@ -74,12 +74,12 @@ export default function Contact() {
                   </div>
                   <h5>Let's Connect!</h5>
                   <a href="https://www.linkedin.com/company/plusteam-global/">
-                    <img src="/static/img/in.svg" alt="in" />
+                    <img src="/static/img/icon/in.svg" alt="in" />
                   </a>
                   <a href="https://www.facebook.com/plusteamglobal">
                     <img
                       className=" ml-1"
-                      src="/static/img/facebook.svg"
+                      src="/static/img/icon/facebook.svg"
                       alt="facebook"
                     />
                   </a>

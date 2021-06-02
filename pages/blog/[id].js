@@ -1,32 +1,31 @@
 /** @format */
 import Head from "next/head";
-import Navbar from "../../components/Navbar/navbar";
 import Footer from "../../components/Footer/Footer";
-export default function Post() {
-  var dataBlog = [
-    {
-      id: "1",
-      title: "Hire Remote Developers in Vietnam to Build Your Killer Product",
-      content:
-        "Remote talent has simply become a necessity, particularly for startups. Unfortunately, hiring remote developers in another country is not always easy.",
-      image: "/static/img/blog/blog1.png",
-    },
-    {
-      id: "2",
-      title: "Coworking Spaces for Tech Teams in Saigon",
-      content:
-        "The working location of your tech team can make a big difference to their satisfaction and even your company’s ability to attract talent.",
-      image: "/static/img/blog/blog2.png",
-    },
-    {
-      id: "3",
-      title: "Why Vietnam?",
-      content: "Consider Vietnam as an example of an emerging market.",
-      image: "/static/img/blog/blog3.png",
-    },
-  ];
+import Navbar from "../../components/Navbar/navbar";
 
-  const blog = dataBlog.find((blog) => blog.id == 1);
+export const getStaticPaths = async () => {
+  const fetchBlog = await fetch("http://127.0.0.1:8000/api/blog/");
+  const data = await fetchBlog.json();
+
+  const paths = data.map((blog) => {
+    return {
+      params: { id: blog.id.toString() },
+    };
+  });
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const fetchBlog = await fetch("http://127.0.0.1:8000/api/blog/" + id);
+  const blog = await fetchBlog.json();
+  return {
+    props: { blog },
+  };
+};
+
+export default function Detail({ blog }) {
   return (
     <div>
       <Head>
@@ -62,10 +61,6 @@ export default function Post() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Bebas Neue"
         />
-        {/* <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        ></link> */}
         <link
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet"
@@ -74,7 +69,12 @@ export default function Post() {
       <Navbar />
       <section className="section pt-5">
         <div className="container">
-          <h1 className="title"> &#8249; Blog </h1>
+          <h3 className="title">
+            <img src="/static/img/icon/back.svg">
+              {/* <a href="/blog/" /> */}
+            </img>
+            Blog
+          </h3>
           <div className="row mt-25">
             <div className="col-lg-12 text-center">
               <img className="img-title" src={blog.image} alt="" />
@@ -96,14 +96,22 @@ export default function Post() {
               </p>
               <p className="mt-4">
                 <span className="text-muted d-block mt-2">Date</span>
-                <span className="h5">1/1/2021</span>
+                <span className="h5">{blog.create_at}</span>
               </p>
               <p className="share mt-10">
                 <span className="h5">Share</span>
                 <br />
-                <img className="mr-2" src="/static/img/facebook.svg" alt="fb" />
-                <img className="mr-2" src="/static/img/in.svg" alt="linked" />
-                <img src="/static/img/share.svg" alt="share" />
+                <img
+                  className="mr-2"
+                  src="/static/img/icon/facebook.svg"
+                  alt="fb"
+                />
+                <img
+                  className="mr-2"
+                  src="/static/img/icon/in.svg"
+                  alt="linked"
+                />
+                <img src="/static/img/icon/share.svg" alt="share" />
               </p>
             </div>
             <div className="col-lg-9 content">

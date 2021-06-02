@@ -1,6 +1,7 @@
 /** @format */
 import Head from "next/head";
-import Blog from "../components/Blog/blog";
+import Link from "next/link";
+import BoxBlog from "../components/Blog/box-blog";
 import Box from "../components/Box/Box";
 import Candidate from "../components/Candidate/candidate";
 import Contact from "../components/Contact/contact";
@@ -15,10 +16,7 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 
-export default function Home({ talent, service }) {
-  console.log(service);
-  console.log(talent);
-
+export default function Home({ talent, service, blog }) {
   return (
     <div>
       <Head>
@@ -109,8 +107,13 @@ export default function Home({ talent, service }) {
         <Candidate />
       </Box>
       <Box title="BLOG" des="">
-        <Blog />
+        <div className="row">
+          {blog.map((blog) => {
+            return <BoxBlog blog={blog}></BoxBlog>;
+          })}
+        </div>
       </Box>
+
       <Box title="GET IN TOUCH" des="">
         <Contact />
       </Box>
@@ -126,12 +129,15 @@ export default function Home({ talent, service }) {
 }
 
 export async function getStaticProps() {
-  const result = await fetch("http://127.0.0.1:8000/api/talent/");
-  const res = await fetch("http://127.0.0.1:8000/api/service/");
+  const fetchTalent = await fetch("http://127.0.0.1:8000/api/talent/");
+  const fetchService = await fetch("http://127.0.0.1:8000/api/service/");
+  const fetchBlog = await fetch("http://127.0.0.1:8000/api/blog/");
 
-  const talent = await result.json();
-  const service = await res.json();
+  const talent = await fetchTalent.json();
+  const service = await fetchService.json();
+  const blog = await fetchBlog.json();
+
   return {
-    props: { talent, service },
+    props: { talent, service, blog },
   };
 }
