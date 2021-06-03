@@ -68,7 +68,7 @@ export default function Footer() {
                       />
                       <div className="input-group-append">
                         <button className="btn click-btn" type="submit">
-                          <img src="./../static/img/telegram.svg"></img>
+                          <img src="./../static/img/icon/telegram.svg"></img>
                         </button>
                       </div>
                     </div>

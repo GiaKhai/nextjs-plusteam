@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function JD({ job }) {
   console.log(job);
   return (
-    <div className="col-6 mt-25">
+    <div className="col-lg-6 col-md-6 mt-25">
       <div className="box-job">
         <div className="row">
           <div className="col col-lg-2"></div>
@@ -22,7 +22,7 @@ export default function JD({ job }) {
                   />
                   <span className="text-job">{job.salary}</span>
                 </div>
-                <div className="col-lg-8">
+                <div className="col-lg-8" style={{ textAlign: "start" }}>
                   <img
                     src="./../static/img/location.png"
                     style={{ margin: "0px 10px 5px 5px" }}

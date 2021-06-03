@@ -32,7 +32,7 @@ function Become() {
           data={dataQuestion?.find((item) => item.id === step)}
         />
         <div className="btn-next text-right">
-          <img src="/static/img/btnNext.svg" onClick={nextStep} />
+          <img src="/static/img/icon/btnNext.svg" onClick={nextStep} />
         </div>
       </div>
       <style jsx>{`
