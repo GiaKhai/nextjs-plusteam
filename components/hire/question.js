@@ -7,7 +7,6 @@ const Question = ({ onChange, data }) => {
   const { id, question, answers } = data;
   const handleChange = (e) => {
     const { value } = e.target;
-    console.log(data?.id, value);
 
     onChange({
       [id]: value,
@@ -26,20 +25,18 @@ const Question = ({ onChange, data }) => {
         {answers?.length > 0 &&
           answers?.map((item, index) => {
             return (
-              <>
-                <label key={index}>
-                  <input
-                    type="radio"
-                    id={index}
-                    name={index}
-                    value={item.title}
-                    onChange={handleChange}
-                    checked={radio.checked === item.title}
-                  />
-                  {item.title}
-                  <p>{item.description}</p>
-                </label>
-              </>
+              <label key={index}>
+                <input
+                  type="radio"
+                  id={index}
+                  name={index}
+                  value={item.title}
+                  onChange={handleChange}
+                  checked={radio.checked === item.title}
+                />
+                {item.title}
+                <p>{item.description}</p>
+              </label>
             );
           })}
       </div>

@@ -3,7 +3,6 @@
 import Link from "next/link";
 
 export default function JD({ job }) {
-  console.log(job);
   return (
     <div className="col-lg-6 col-md-6 mt-25">
       <div className="box-job">

@@ -22,7 +22,7 @@ a {
   font-family: Bebas Neue;
   font-style: normal;
   font-weight: normal;
-  font-size: 65px;
+  font-size: 50px;
   line-height: 78px;
   text-align: center;
   color: #094989;
@@ -43,6 +43,7 @@ a {
   border: 3px solid #fdb31c;
   color: #094989;
   font-weight: 700;
+  min-width: 100px;
 }
 .btn-hiring:hover {
   color: #ffffff;
