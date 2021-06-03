@@ -37,7 +37,7 @@ export default function JD({ job }) {
             <span className="mute-date">{job.create_at}</span>
           </div>
           <div className="col-lg-6 text">
-            <Link href={"/job/" + job.id} key={job.id}>
+            <Link href={"/share-your-resume/" + job.id} key={job.id}>
               View Job Description
             </Link>
           </div>

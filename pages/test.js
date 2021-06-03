@@ -3,7 +3,29 @@
 import React from "react";
 import Head from "next/head";
 
-function DetailJob(props) {
+export const getStaticPaths = async () => {
+  const fetchJob = await fetch("http://localhost:8000/api/job/");
+  const data = await fetchJob.json();
+
+  const paths = data.map((job) => {
+    return {
+      params: { id: job.id.toString() },
+    };
+  });
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const fetchJob = await fetch("http://localhost:8000/api/job/" + id);
+  const job = await fetchJob.json();
+  return {
+    props: { job },
+  };
+};
+
+export default function DetailJob({ job }) {
   return (
     <div>
       <Head>
@@ -71,9 +93,7 @@ function DetailJob(props) {
               </img>
               Job
             </h3>
-            <h1 className="section-title to-upcase">
-              Network Development Associate
-            </h1>
+            <h1 className="section-title to-upcase">{job.title}</h1>
             <div className="row">
               <div className="col-lg-6 mt-25">
                 <div className="row">
@@ -87,7 +107,7 @@ function DetailJob(props) {
                       Company
                     </span>
                     <br />
-                    <a className="text-dark">PlusTeam</a>
+                    <a className="text-dark">{job.company}</a>
                   </div>
                   <div className="col-lg-6 mt-25">
                     <span className="blue-text">
@@ -99,11 +119,7 @@ function DetailJob(props) {
                       Salary
                     </span>
                     <br />
-                    <a className="text-dark">
-                      ${"{"}
-                      {"{"}job.salary{"}"}
-                      {"}"}
-                    </a>
+                    <a className="text-dark">{job.salary}</a>
                   </div>
                   <div className="col-lg-6 mt-25">
                     <span className="blue-text">
@@ -115,11 +131,7 @@ function DetailJob(props) {
                       Location
                     </span>
                     <br />
-                    <a className="text-dark">
-                      {"{"}
-                      {"{"} job.location{"}"}
-                      {"}"}
-                    </a>
+                    <a className="text-dark">{job.location}</a>
                   </div>
                   <div className="col-lg-6 mt-25">
                     <span className="blue-text">
@@ -131,21 +143,12 @@ function DetailJob(props) {
                       Varcancies
                     </span>
                     <br />
-                    <a className="text-dark">
-                      {"{"}
-                      {"{"}job.vacancies{"}"}
-                      {"}"} persons
-                    </a>
+                    <a className="text-dark">{job.vacancies}</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="mt-25 content">
-              {"{"}
-              {"{"}job.content| safe |linebreaks{"}"}
-              {"}"}
-            </div>
-            {"{"}% endfor %{"}"}
+            <div className="mt-25 content">{job.content}</div>
             <div
               className="mt-25"
               style={{ borderBottom: "2px solid #BDBDBD" }}
@@ -250,88 +253,6 @@ function DetailJob(props) {
             </form>
           </div>
         </section>
-        {/* <section className="section area-padding-top pb-5" id="services">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-8 offset-lg-2">
-                <h1 className="section-title text-center to-upcase">
-                  you might also interested in
-                </h1>
-              </div>
-            </div>
-            <div className="row mt-25">
-              {"{"}% for item in all_jobs %{"}"}
-              <div className="col-md-6 col-lg-6  mt-25">
-                <div className="box-job">
-                  <div className="row">
-                    <div className="col col-lg-2">
-                      <img src="{{item.image.url}}" alt="plusteam" />
-                    </div>
-                    <div className="col col-lg-10">
-                      <h4 className="question-title">
-                        {"{"}
-                        {"{"}item.title{"}"}
-                        {"}"}
-                      </h4>
-                      {"{"}% if item.urgent %{"}"}
-                      <div className="badge">Urgent</div>
-                      {"{"}% endif %{"}"}
-                      <h5 className="company-name">
-                        {"{"}
-                        {"{"}item.company{"}"}
-                        {"}"}
-                      </h5>
-                      <div className="row">
-                        <div className="col-lg-4">
-                          <img
-                            style={{ marginBottom: "5px", marginRight: "10px" }}
-                            src="{% static 'img/usd.png' %}"
-                            alt="usd"
-                          />
-                          <span className="text-job">
-                            {"{"}
-                            {"{"}item.salary{"}"}
-                            {"}"}
-                          </span>
-                        </div>
-                        <div className="col-lg-8">
-                          <img
-                            src="{% static 'img/location.png' %}"
-                            style={{ marginBottom: "5px", marginRight: "10px" }}
-                            alt="location"
-                          />
-                          <span className="text-job">
-                            {"{"}
-                            {"{"}item.location{"}"}
-                            {"}"}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row pt-4">
-                    <div className="col-lg-6">
-                      <span className="mute-date">
-                        {"{"}
-                        {"{"}item.update_at{"}"}
-                        {"}"}
-                      </span>
-                    </div>
-                    <div className="col-lg-6">
-                      <a
-                        className="job-view"
-                        href="{% url 'job:job' %}{{item.id}}"
-                      >
-                        View Job Description
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {"{"}% endfor %{"}"}
-            </div>
-          </div>
-        </section> */}
       </div>
       <style jsx>{`
         .blue-text {
@@ -384,5 +305,3 @@ function DetailJob(props) {
     </div>
   );
 }
-
-export default DetailJob;

@@ -88,7 +88,7 @@ export default function Home({ blog }) {
         </div>
       </section>
       <div className="container">
-        <h1 className="section-title text-center text-blue mt-5">Blog</h1>{" "}
+        <h1 className="section-title text-center text-blue mt-5">Blog</h1>
         <div className="row">
           {blog.map((blog) => {
             return <BoxBlog blog={blog}></BoxBlog>;
