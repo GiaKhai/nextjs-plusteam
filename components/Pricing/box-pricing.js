@@ -7,7 +7,7 @@ export default function BoxPricing({ pricings }) {
         <h5 className="title">{pricings.title}</h5>
         <h1 className="text-price">{pricings.price}</h1>
         <h6 className="text-time">{pricings.billing}</h6>
-        <a href="">
+        <a href="/contact-us">
           <button type="button" className="btn btn-outline-warning btn-hiring">
             Contact Us
           </button>
