@@ -229,15 +229,20 @@ export default function Home({ blog }) {
         }
         .btn-sub {
           border-radius: 24px;
-          padding: 6px 8px;
+          padding: 6px 15px;
           background-color: #fdb31c;
           border-color: #fdb31c;
-          line-height: 28px;
+          line-height: 33px;
+          margin: auto;
           color: white;
           font-weight: 700;
           text-transform: capitalize;
           z-index: 999;
         }
+        .btn-sub:hover {
+          color: white !important;
+        }
+
         .email-box {
           border: 1px solid #fdb31c;
           width: 67% !important;
