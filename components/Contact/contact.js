@@ -1,6 +1,33 @@
 /** @format */
+import axios from "axios";
+import React, { useState } from "react";
 
 export default function Contact() {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    content: "",
+  });
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    console.log(event.target.value);
+    const name = event.target.name;
+    setValues({ ...values, [name]: value });
+    console.log(values);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("content", values.content);
+
+    console.log(values);
+    axios.post("http://localhost:8000/email", formData);
+  };
+
   return (
     <section className="section" id="contact">
       <div className="container">
@@ -86,7 +113,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="col-lg-6">
-                <form id="contactForm" method="post">
+                <form id="contactForm" method="post" onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-sm-12">
                       <div className="form-group">
@@ -96,6 +123,8 @@ export default function Contact() {
                           id="name"
                           type="text"
                           placeholder="Name*"
+                          value={values.name}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -107,6 +136,8 @@ export default function Contact() {
                           id="email"
                           type="email"
                           placeholder="Email*"
+                          value={values.email}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
@@ -114,12 +145,13 @@ export default function Contact() {
                       <div className="form-group">
                         <textarea
                           className="form-control textarea"
-                          name="message"
-                          id="message"
+                          name="content"
+                          id="content"
                           cols={30}
                           rows={9}
                           placeholder="Tell us your problematic headache..."
-                          defaultValue={""}
+                          value={values.content}
+                          onChange={handleChange}
                         />
                       </div>
                     </div>
