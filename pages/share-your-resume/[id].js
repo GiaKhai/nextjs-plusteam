@@ -1,7 +1,8 @@
 /** @format */
 
-import React from "react";
+import axios from "axios";
 import Head from "next/head";
+import React, { useEffect, useState } from "react";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch("http://localhost:8000/api/job/");
@@ -26,6 +27,37 @@ export const getStaticProps = async (context) => {
 };
 
 export default function DetailJob({ job }) {
+  const [values, setValues] = useState({
+    first_name: "",
+    last_name: "",
+    phone: "",
+    email: "",
+    file: null,
+  });
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleChangeFile = (event) => {
+    setValues({ ...values, file: event.target.files[0] });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("first_name", values.first_name);
+    formData.append("last_name", values.last_name);
+    formData.append("phone", values.phone);
+    formData.append("email", values.email);
+    formData.append("file", values.file);
+
+    console.log(values);
+    axios.post("http://127.0.0.1:8000/api/job-submission/", formData).then;
+  };
+
   return (
     <div>
       <Head>
@@ -149,93 +181,105 @@ export default function DetailJob({ job }) {
               </div>
             </div>
             <div className="mt-25 content">{job.content}</div>
-            <div
-              className="mt-25"
-              style={{ borderBottom: "2px solid #BDBDBD" }}
-            ></div>
-            <form
-              className="form-contact contact_form"
-              method="post"
-              id="sendCVForm"
-              encType="multipart/form-data"
-            >
-              <div className="mt-25">
-                <h1 style={{ color: "black" }}>Submit Your Application</h1>
+            <div className="form">
+              <div
+                className="mt-25"
+                style={{ borderBottom: "2px solid #BDBDBD" }}
+              ></div>
+              <form
+                onSubmit={handleSubmit}
+                className="form-contact contact_form"
+                method="post"
+                id="sendCVForm"
+                encType="multipart/form-data"
+              >
+                <div className="mt-25">
+                  <h1 style={{ color: "black" }}>Submit Your Application</h1>
 
-                <div className="col-lg-4 file-CV">
-                  <div className="input-file-container">
-                    <input
-                      className="input-file"
-                      id="id_file"
-                      type="file"
-                      name="file"
-                    />
-                    <label
-                      tabIndex={0}
-                      htmlFor="my-file"
-                      className="input-file-trigger"
-                    >
-                      upload your resume (.pdf, .doc, .docx, .txt)
-                    </label>
-                  </div>
-                  <p className="file-return" />
-                </div>
-              </div>
-              <div className="row mt-25 contact">
-                <div className="col-lg-6">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      name="first_name"
-                      id="id_first_name"
-                      type="text"
-                      placeholder="First Name*"
-                    />
+                  <div className="col-lg-4 file-CV">
+                    <div className="input-file-container">
+                      <input
+                        className="input-file"
+                        id="id_file"
+                        type="file"
+                        name="file"
+                        onChange={handleChangeFile}
+                      />
+                      <label
+                        tabIndex={0}
+                        htmlFor="my-file"
+                        className="input-file-trigger"
+                      >
+                        upload your resume (.pdf, .doc, .docx, .txt)
+                      </label>
+                    </div>
+                    <p className="file-return" />
                   </div>
                 </div>
-                <div className="col-lg-6">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      name="last_name"
-                      id="id_last_name"
-                      type="text"
-                      placeholder="Last Name*"
-                    />
+                <div className="row mt-25 contact">
+                  <div className="col-lg-6">
+                    <div className="form-group">
+                      <input
+                        className="form-control"
+                        name="first_name"
+                        id="id_first_name"
+                        type="text"
+                        placeholder="First Name*"
+                        value={values.first_name}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="form-group">
+                      <input
+                        className="form-control"
+                        name="last_name"
+                        id="id_last_name"
+                        type="text"
+                        placeholder="Last Name*"
+                        value={values.last_name}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="form-group ">
+                      <input
+                        className="form-control"
+                        name="phone"
+                        id="id_phone"
+                        type="text"
+                        placeholder="Phone Number*"
+                        value={values.phone}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="form-group">
+                      <input
+                        className="form-control"
+                        name="email"
+                        id="id_email"
+                        type="email"
+                        placeholder="Email*"
+                        value={values.email}
+                        onChange={handleChange}
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="col-lg-6">
-                  <div className="form-group ">
-                    <input
-                      className="form-control"
-                      name="phone"
-                      id="id_phone"
-                      type="text"
-                      placeholder="Phone Number*"
-                    />
-                  </div>
+                <div className="form-group mt-3 text-center">
+                  <button
+                    type="submit"
+                    className="btn btn-outline-warning btn-hiring "
+                  >
+                    Submit
+                  </button>
                 </div>
-                <div className="col-lg-6">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      name="email"
-                      id="id_email"
-                      type="email"
-                      placeholder="Email*"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="form-group mt-3 text-center">
-                <button
-                  type="submit"
-                  className="btn btn-outline-warning btn-hiring "
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </section>
       </div>
