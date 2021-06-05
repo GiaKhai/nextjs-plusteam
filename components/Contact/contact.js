@@ -17,7 +17,7 @@ export default function Contact() {
     console.log(values);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", values.name);
@@ -25,7 +25,18 @@ export default function Contact() {
     formData.append("content", values.content);
 
     console.log(values);
-    axios.post("http://localhost:8000/email", formData);
+    const result = await axios.post("http://localhost:8000/email", formData);
+    console.log(result);
+    if (result.status === 200) {
+      <div class="alert alert-success" role="alert">
+        This is a success alert with{" "}
+        <a href="#" class="alert-link">
+          an example link
+        </a>
+        . Give it a click if you like.
+      </div>;
+      setValues({ name: "", email: "", content: "" });
+    } else alert("no");
   };
 
   return (
@@ -220,6 +231,7 @@ export default function Contact() {
           display: flex;
         }
         .row svg {
+          min-width: 21px;
           margin-right: 10px;
         }
         @media (max-width: 575px) {

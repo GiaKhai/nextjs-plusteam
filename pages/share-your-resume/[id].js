@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch("http://localhost:8000/api/job/");
@@ -55,7 +55,20 @@ export default function DetailJob({ job }) {
     formData.append("file", values.file);
 
     console.log(values);
-    axios.post("http://127.0.0.1:8000/api/job-submission/", formData).then;
+    const result = axios.post(
+      "http://127.0.0.1:8000/api/job-submission/",
+      formData
+    );
+    if (result.status === 200) {
+      alert("ok");
+      setValues({
+        first_name: "",
+        last_name: "",
+        phone: "",
+        email: "",
+        file: null,
+      });
+    } else alert("no");
   };
 
   return (

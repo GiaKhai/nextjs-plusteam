@@ -1,8 +1,40 @@
-export default function FormContact() {
+/** @format */
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+export default function FormContact({ radio }) {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    content: {},
+  });
+
+  useEffect(() => {
+    setValues({ ...values, content: radio });
+  }, [radio]);
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    console.log(event.target.value);
+    const name = event.target.name;
+    setValues({ ...values, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("phone", values.phone);
+    formData.append("content", values.content);
+
+    axios.post("http://localhost:8000/email", formData);
+  };
+
   return (
     <div className="row mt-25">
       <div className="col-lg-8 offset-lg-2">
-        <form action="" method="post">
+        <form action="" method="post" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-sm-12">
               <div className="form-group">
@@ -12,6 +44,8 @@ export default function FormContact() {
                   id="name"
                   type="text"
                   placeholder="Name*"
+                  required
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -24,20 +58,22 @@ export default function FormContact() {
                   id="email"
                   type="email"
                   placeholder="Email*"
+                  required
+                  onChange={handleChange}
                 />
               </div>
             </div>
 
             <div className="col-12">
               <div className="form-group">
-                <textarea
+                <input
                   className="form-control"
-                  name="message"
-                  id="message"
-                  cols="30"
-                  rows="5"
-                  placeholder="Tell us your problematic headache..."
-                ></textarea>
+                  name="phone"
+                  id="phone"
+                  placeholder="Phone number*"
+                  required
+                  onChange={handleChange}
+                ></input>
               </div>
             </div>
           </div>
@@ -52,24 +88,6 @@ export default function FormContact() {
         </form>
       </div>
       <style jsx>{`
-        #name {
-          background-repeat: no-repeat;
-          background-position: 7px center;
-          text-indent: 20px;
-          background-image: url(/static/img/yellow-people.png);
-        }
-        #email {
-          background-repeat: no-repeat;
-          background-position: 6px center;
-          text-indent: 20px;
-          background-image: url(/static/img/yellow-mail.png);
-        }
-        #message {
-          background-repeat: no-repeat;
-          background-position: 8px 8px;
-          text-indent: 20px;
-          background-image: url(/static/img/yellow-pen.png);
-        }
         .form-control {
           display: block;
           width: 100%;

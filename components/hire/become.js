@@ -24,7 +24,7 @@ function Become() {
       ...value,
     });
   };
-
+  console.log(radio);
   return (
     <div className="section">
       <div className="col-lg-8 offset-lg-2 question-area">
@@ -36,7 +36,7 @@ function Become() {
         </div>
         <div className={hiden ? "none" : ""}>
           <Box title="SUCCESS! LET'S CONNECT YOU WITH TALENT" des="">
-            <FormContact />
+            <FormContact radio={radio} />
           </Box>
         </div>
         <div className={hiden ? "btn-next text-right" : "none"}>
