@@ -24,17 +24,9 @@ export default function Contact() {
     formData.append("email", values.email);
     formData.append("content", values.content);
 
-    console.log(values);
     const result = await axios.post("http://localhost:8000/email", formData);
-    console.log(result);
     if (result.status === 200) {
-      <div class="alert alert-success" role="alert">
-        This is a success alert with{" "}
-        <a href="#" class="alert-link">
-          an example link
-        </a>
-        . Give it a click if you like.
-      </div>;
+      alert("ok");
       setValues({ name: "", email: "", content: "" });
     } else alert("no");
   };

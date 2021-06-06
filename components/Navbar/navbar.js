@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState();
   const classes = classNames("header", {
@@ -31,7 +30,7 @@ export default function Navbar() {
         <div className="main_menu">
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
-              <a className="navbar-brand logo_h" href="#">
+              <a className="navbar-brand logo_h" href="/">
                 <img src="../static/img/logo/Logo-header.svg" alt="" />
               </a>
               <button

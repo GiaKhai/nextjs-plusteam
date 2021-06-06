@@ -5,30 +5,30 @@ export default function FormContact({ radio }) {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    phone: "",
-    content: {},
+    content: "",
   });
 
   useEffect(() => {
     setValues({ ...values, content: radio });
   }, [radio]);
-
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log(event.target.value);
     const name = event.target.name;
     setValues({ ...values, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", values.name);
     formData.append("email", values.email);
-    formData.append("phone", values.phone);
     formData.append("content", values.content);
 
-    axios.post("http://localhost:8000/email", formData);
+    const result = await axios.post("http://localhost:8000/email", formData);
+    console.log(result);
+    if (result.status === 200) {
+      alert("ok");
+    } else alert("no");
   };
 
   return (
@@ -61,19 +61,6 @@ export default function FormContact({ radio }) {
                   required
                   onChange={handleChange}
                 />
-              </div>
-            </div>
-
-            <div className="col-12">
-              <div className="form-group">
-                <input
-                  className="form-control"
-                  name="phone"
-                  id="phone"
-                  placeholder="Phone number*"
-                  required
-                  onChange={handleChange}
-                ></input>
               </div>
             </div>
           </div>

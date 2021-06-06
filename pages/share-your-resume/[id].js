@@ -3,6 +3,8 @@
 import axios from "axios";
 import Head from "next/head";
 import React, { useState } from "react";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/navbar";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch("http://localhost:8000/api/job/");
@@ -130,6 +132,7 @@ export default function DetailJob({ job }) {
         />
       </Head>
       <div>
+        <Navbar />
         <section className="section pt-5 pb-5">
           <div className="container">
             <h3 className="title">
@@ -295,6 +298,7 @@ export default function DetailJob({ job }) {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
       <style jsx>{`
         .blue-text {
