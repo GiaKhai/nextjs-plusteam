@@ -116,9 +116,9 @@ export default function Home({ talent, service, blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchTalent = await fetch("http://127.0.0.1:8000/api/talent/");
-  const fetchService = await fetch("http://127.0.0.1:8000/api/service/");
-  const fetchBlog = await fetch("http://127.0.0.1:8000/api/blog/");
+  const fetchTalent = await fetch("https://api-dev.plusteam.io/api/talent/");
+  const fetchService = await fetch("https://api-dev.plusteam.io/api/service/");
+  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/");
 
   const talent = await fetchTalent.json();
   const service = await fetchService.json();
