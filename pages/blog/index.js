@@ -263,7 +263,7 @@ export default function Home({ blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchBlog = await fetch("http://127.0.0.1:8000/api/blog/");
+  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/");
 
   const blog = await fetchBlog.json();
 

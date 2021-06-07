@@ -57,7 +57,7 @@ export default function DetailJob({ job }) {
     formData.append("file", values.file);
 
     const result = axios.post(
-      "http://127.0.0.1:8000/api/job-submission/",
+      "https://api-dev.plusteam.io/api/job-submission/",
       formData
     );
     if (result.status === 200) {
