@@ -11,10 +11,8 @@ export default function Contact() {
 
   const handleChange = (event) => {
     const value = event.target.value;
-    console.log(event.target.value);
     const name = event.target.name;
     setValues({ ...values, [name]: value });
-    console.log(values);
   };
 
   const handleSubmit = async (event) => {
@@ -24,7 +22,10 @@ export default function Contact() {
     formData.append("email", values.email);
     formData.append("content", values.content);
 
-    const result = await axios.post("http://localhost:8000/email", formData);
+    const result = await axios.post(
+      "https://api-dev.plusteam.io/email",
+      formData
+    );
     if (result.status === 200) {
       alert("ok");
       setValues({ name: "", email: "", content: "" });

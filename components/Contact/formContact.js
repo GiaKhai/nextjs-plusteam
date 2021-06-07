@@ -24,8 +24,10 @@ export default function FormContact({ radio }) {
     formData.append("email", values.email);
     formData.append("content", values.content);
 
-    const result = await axios.post("http://localhost:8000/email", formData);
-    console.log(result);
+    const result = await axios.post(
+      "https://api-dev.plusteam.io/email",
+      formData
+    );
     if (result.status === 200) {
       alert("ok");
     } else alert("no");

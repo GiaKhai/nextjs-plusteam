@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 
 export const getStaticPaths = async () => {
-  const fetchJob = await fetch("http://localhost:8000/api/job/");
+  const fetchJob = await fetch("https://api-dev.plusteam.io/api/job/");
   const data = await fetchJob.json();
 
   const paths = data.map((job) => {
@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const fetchJob = await fetch("http://localhost:8000/api/job/" + id);
+  const fetchJob = await fetch("https://api-dev.plusteam.io/api/job/" + id);
   const job = await fetchJob.json();
   return {
     props: { job },
@@ -56,7 +56,6 @@ export default function DetailJob({ job }) {
     formData.append("email", values.email);
     formData.append("file", values.file);
 
-    console.log(values);
     const result = axios.post(
       "http://127.0.0.1:8000/api/job-submission/",
       formData

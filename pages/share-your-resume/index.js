@@ -80,7 +80,7 @@ export default function ShareYourResume({ job }) {
   );
 }
 export async function getStaticProps() {
-  const fetchJob = await fetch("http://localhost:8000/api/job/");
+  const fetchJob = await fetch("https://api-dev.plusteam.io/api/job/");
 
   const job = await fetchJob.json();
 
