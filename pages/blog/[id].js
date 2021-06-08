@@ -4,7 +4,9 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 
 export const getStaticPaths = async () => {
-  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/");
+  const fetchBlog = await fetch(
+    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`"
+  );
   const data = await fetchBlog.json();
 
   const paths = data.map((blog) => {
@@ -18,7 +20,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/" + id);
+  const fetchBlog = await fetch(
+    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`" + id
+  );
   const blog = await fetchBlog.json();
   return {
     props: { blog },

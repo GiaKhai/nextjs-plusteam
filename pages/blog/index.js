@@ -263,7 +263,9 @@ export default function Home({ blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/");
+  const fetchBlog = await fetch(
+    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`"
+  );
 
   const blog = await fetchBlog.json();
 

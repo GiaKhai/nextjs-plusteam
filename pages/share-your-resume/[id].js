@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 
 export const getStaticPaths = async () => {
-  const fetchJob = await fetch("https://api-dev.plusteam.io/api/job/");
+  const fetchJob = await fetch(`${process.env.NEXT_PUBLIC_PLUSTEAM_API}job/`);
   const data = await fetchJob.json();
 
   const paths = data.map((job) => {
@@ -21,7 +21,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const fetchJob = await fetch("https://api-dev.plusteam.io/api/job/" + id);
+  const fetchJob = await fetch(
+    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}job/` + id
+  );
   const job = await fetchJob.json();
   return {
     props: { job },
@@ -47,7 +49,7 @@ export default function DetailJob({ job }) {
     setValues({ ...values, file: event.target.files[0] });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("first_name", values.first_name);
@@ -56,8 +58,8 @@ export default function DetailJob({ job }) {
     formData.append("email", values.email);
     formData.append("file", values.file);
 
-    const result = axios.post(
-      "https://api-dev.plusteam.io/api/job-submission/",
+    const result = await axios.post(
+      `${process.env.NEXT_PUBLIC_PLUSTEAM_API}job-submission/`,
       formData
     );
     if (result.status === 200) {

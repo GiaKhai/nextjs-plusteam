@@ -25,7 +25,7 @@ export default function FormContact({ radio }) {
     formData.append("content", values.content);
 
     const result = await axios.post(
-      "https://api-dev.plusteam.io/email",
+      `${process.env.NEXT_PUBLIC_PLUSTEAM}/email`,
       formData
     );
     if (result.status === 200) {

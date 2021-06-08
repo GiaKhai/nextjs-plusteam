@@ -116,9 +116,13 @@ export default function Home({ talent, service, blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchTalent = await fetch("https://api-dev.plusteam.io/api/talent/");
-  const fetchService = await fetch("https://api-dev.plusteam.io/api/service/");
-  const fetchBlog = await fetch("https://api-dev.plusteam.io/api/blog/");
+  const fetchTalent = await fetch(
+    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}talent/`
+  );
+  const fetchService = await fetch(
+    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}service/`
+  );
+  const fetchBlog = await fetch(`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`);
 
   const talent = await fetchTalent.json();
   const service = await fetchService.json();
