@@ -1,6 +1,8 @@
 /** @format */
 import axios from "axios";
 import React, { useState } from "react";
+import { notification } from "antd";
+import "antd/dist/antd.css";
 
 export default function Contact() {
   const [values, setValues] = useState({
@@ -27,9 +29,16 @@ export default function Contact() {
       formData
     );
     if (result.status === 200) {
-      alert("ok");
       setValues({ name: "", email: "", content: "" });
-    } else alert("no");
+      notification.success({
+        message: "Success",
+        description: "Please check your email !",
+      });
+    } else
+      notification.error({
+        message: "False",
+        description: "Please check again !",
+      });
   };
 
   return (
