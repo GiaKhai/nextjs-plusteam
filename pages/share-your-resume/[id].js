@@ -61,7 +61,7 @@ export default function DetailJob({ job }) {
 
     const result = await axios.post(`${server}job-submission/`, formData);
     console.log(result);
-    if (result.status === 200) {
+    if (result.status === 200 || result.status === 201) {
       setValues({
         first_name: "",
         last_name: "",
@@ -91,7 +91,6 @@ export default function DetailJob({ job }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         />
-        <link rel="stylesheet" href="assets/css/style.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
