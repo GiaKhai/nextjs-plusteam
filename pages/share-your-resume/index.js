@@ -5,6 +5,8 @@ import Link from "next/link";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 import JD from "./../../components/ShareYourResume/JD-item";
+import { server } from "../../config";
+
 export default function ShareYourResume({ job }) {
   return (
     <div>
@@ -80,7 +82,7 @@ export default function ShareYourResume({ job }) {
   );
 }
 export async function getStaticProps() {
-  const fetchJob = await fetch(`${process.env.NEXT_PUBLIC_PLUSTEAM_API}job/`);
+  const fetchJob = await fetch(`${server}job/`);
 
   const job = await fetchJob.json();
 

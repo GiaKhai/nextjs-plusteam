@@ -2,11 +2,10 @@
 import Head from "next/head";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
+import { server } from "../../config";
 
 export const getStaticPaths = async () => {
-  const fetchBlog = await fetch(
-    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`"
-  );
+  const fetchBlog = await fetch(`${server}blog/`);
   const data = await fetchBlog.json();
 
   const paths = data.map((blog) => {
@@ -20,9 +19,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const fetchBlog = await fetch(
-    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`" + id
-  );
+  const fetchBlog = await fetch(`${server}blog/${id}`);
   const blog = await fetchBlog.json();
   return {
     props: { blog },

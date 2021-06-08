@@ -3,6 +3,7 @@ import Head from "next/head";
 import BoxBlog from "../../components/Blog/box-blog";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
+import { server } from "../../config";
 
 export default function Home({ blog }) {
   return (
@@ -263,9 +264,7 @@ export default function Home({ blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchBlog = await fetch(
-    "`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`"
-  );
+  const fetchBlog = await fetch(`${server}blog/`);
 
   const blog = await fetchBlog.json();
 

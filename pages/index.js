@@ -16,6 +16,7 @@ import JD from "../components/ShareYourResume/JD-item";
 import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
+import { server } from "../config";
 
 export default function Home({ talent, service, blog }) {
   return (
@@ -116,13 +117,9 @@ export default function Home({ talent, service, blog }) {
 }
 
 export async function getStaticProps() {
-  const fetchTalent = await fetch(
-    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}talent/`
-  );
-  const fetchService = await fetch(
-    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}service/`
-  );
-  const fetchBlog = await fetch(`${process.env.NEXT_PUBLIC_PLUSTEAM_API}blog/`);
+  const fetchTalent = await fetch(`${server}talent/`);
+  const fetchService = await fetch(`${server}service/`);
+  const fetchBlog = await fetch(`${server}blog/`);
 
   const talent = await fetchTalent.json();
   const service = await fetchService.json();

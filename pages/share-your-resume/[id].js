@@ -5,9 +5,10 @@ import Head from "next/head";
 import React, { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
+import { server } from "../../config";
 
 export const getStaticPaths = async () => {
-  const fetchJob = await fetch(`${process.env.NEXT_PUBLIC_PLUSTEAM_API}job/`);
+  const fetchJob = await fetch(`${server}job/`);
   const data = await fetchJob.json();
 
   const paths = data.map((job) => {
@@ -21,9 +22,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  const fetchJob = await fetch(
-    `${process.env.NEXT_PUBLIC_PLUSTEAM_API}job/` + id
-  );
+  const fetchJob = await fetch(`${server}job/${id}`);
   const job = await fetchJob.json();
   return {
     props: { job },
@@ -58,10 +57,7 @@ export default function DetailJob({ job }) {
     formData.append("email", values.email);
     formData.append("file", values.file);
 
-    const result = await axios.post(
-      `${process.env.NEXT_PUBLIC_PLUSTEAM_API}job-submission/`,
-      formData
-    );
+    const result = await axios.post(`${server}job-submission/`, formData);
     if (result.status === 200) {
       alert("ok");
       setValues({
