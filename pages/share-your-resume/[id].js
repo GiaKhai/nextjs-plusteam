@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 import { server } from "../../config";
+import { notification } from "antd";
+import "antd/dist/antd.css";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch(`${server}job/`);
@@ -58,8 +60,8 @@ export default function DetailJob({ job }) {
     formData.append("file", values.file);
 
     const result = await axios.post(`${server}job-submission/`, formData);
+    console.log(result);
     if (result.status === 200) {
-      alert("ok");
       setValues({
         first_name: "",
         last_name: "",
@@ -67,7 +69,15 @@ export default function DetailJob({ job }) {
         email: "",
         file: null,
       });
-    } else alert("no");
+      notification.success({
+        message: "Success",
+        description: "Please check your email !",
+      });
+    } else
+      notification.error({
+        message: "False",
+        description: "Please check again !",
+      });
   };
 
   return (
@@ -98,6 +108,7 @@ export default function DetailJob({ job }) {
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
         ></script>
         <script
           src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"

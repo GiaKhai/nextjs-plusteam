@@ -258,6 +258,11 @@ export default function Home({ blog }) {
           margin-right: -25px;
           height: 45px;
         }
+        @media (max-width: 575px) {
+          .email-control {
+            width: 100%;
+          }
+        }
       `}</style>
     </div>
   );
