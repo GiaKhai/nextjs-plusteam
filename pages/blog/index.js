@@ -4,6 +4,7 @@ import BoxBlog from "../../components/Blog/box-blog";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/navbar";
 import { server } from "../../config";
+import Link from "next/link";
 
 export default function Home({ blog }) {
   return (
@@ -29,6 +30,7 @@ export default function Home({ blog }) {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
         />
 
         <link
@@ -60,29 +62,17 @@ export default function Home({ blog }) {
               className="col-lg-6 col-lg-4"
               style={{ padding: "0px !important" }}
             >
-              <img
-                src="/static/img/blog/blog1.png"
-                className="img-lastest"
-                alt="img4"
-              />
+              <img src={blog[0].image} className="img-lastest" alt="img" />
             </div>
             <div className="col-lg-6  text-center">
               <div style={{ padding: "15px" }}>
-                <a className="text-yellow" href="#">
-                  Lastest News
-                </a>
+                <a className="text-yellow">Lastest News</a>
                 <br />
-                <h1 className="lastest-title mt-3">
-                  Vietnam Is One Of Top Global Outsource Market In 2021
-                </h1>
-                <p className="text-muted mt-1 mb-3">
-                  Remote talent has simply become a necessity, particularly for
-                  startups. Unfortunately, hiring remote developers in another
-                  country ...
-                </p>
-                <a className="read-btn" href="#">
-                  Read More &gt; <i className="mdi mdi-arrow-right" />
-                </a>
+                <h1 className="lastest-title mt-3">{blog[0].title}</h1>
+                <p className="text-muted mt-1 mb-3">{blog[0].summary}</p>
+                <Link href={"/blog/" + blog[0].id} key={blog[0].id}>
+                  Read more &gt;
+                </Link>
               </div>
             </div>
           </div>
@@ -92,7 +82,7 @@ export default function Home({ blog }) {
         <h1 className="section-title text-center text-blue mt-5">Blog</h1>
         <div className="row">
           {blog.map((blog) => {
-            return <BoxBlog blog={blog}></BoxBlog>;
+            return <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
           })}
         </div>
       </div>

@@ -99,7 +99,7 @@ export default function Home({ talent, service, blog }) {
       <Box title="BLOG" des="">
         <div className="row">
           {blog.map((blog) => {
-            return <BoxBlog blog={blog}></BoxBlog>;
+            return <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
           })}
         </div>
       </Box>
