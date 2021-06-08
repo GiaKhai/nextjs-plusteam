@@ -36,6 +36,7 @@ export default function FormContact({ radio }) {
         message: "Success",
         description: "Please check your email !",
       });
+      window.location.reload();
     } else
       notification.error({
         message: "False",

@@ -24,16 +24,15 @@ function Become() {
       ...value,
     });
   };
-  console.log(radio);
-  const content = `${radio[1]}\n
+  const content = `\n${radio[1]}\n
     ${radio[2]}\n
     ${radio[3]}\n
     ${radio[4]}\n
-    ${radio[5]} \n
-    ${radio[6]} \n
-    ${radio[7]} \n
-    ${radio[8]} \n
-    ${radio[9]} \n
+    ${radio[5]}\n
+    ${radio[6]}\n
+    ${radio[7]}\n
+    ${radio[8]}\n
+    ${radio[9]}\n
     ${radio[10]} `;
   return (
     <div className="section">
@@ -58,11 +57,11 @@ function Become() {
           width: 50px;
         }
         .question-area {
-          height: 570px;
+          height: 620px;
         }
         @media (max-width: 575px) {
           .question-area {
-            height: 860px;
+            height: 890px;
           }
         }
         .test {

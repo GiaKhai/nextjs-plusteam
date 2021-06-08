@@ -60,7 +60,6 @@ export default function DetailJob({ job }) {
     formData.append("file", values.file);
 
     const result = await axios.post(`${server}job-submission/`, formData);
-    console.log(result);
     if (result.status === 200 || result.status === 201) {
       setValues({
         first_name: "",
