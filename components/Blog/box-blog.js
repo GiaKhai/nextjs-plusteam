@@ -10,9 +10,11 @@ export default function BoxBlog({ blog }) {
         <div className="service-content">
           <h5>{blog.title}</h5>
           <p>{blog.summary}</p>
-          <Link href={"/blog/" + blog.id} key={blog.id}>
-            Read more &gt;
-          </Link>
+          <div className="read">
+            <Link href={"/blog/" + blog.id} key={blog.id}>
+              Read more &gt;
+            </Link>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -57,6 +59,7 @@ export default function BoxBlog({ blog }) {
         }
         .service-content {
           padding: 15px 20px;
+          color: #292b33 !important;
         }
         .service-content:hover {
           color: #fdb31c !important;

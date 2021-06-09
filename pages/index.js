@@ -98,8 +98,8 @@ export default function Home({ talent, service, blog }) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {blog.map((blog) => {
-            return <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
+          {blog.map((blog, index) => {
+            return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
           })}
         </div>
       </Box>
