@@ -40,7 +40,6 @@ export default function Navbar() {
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
               >
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
@@ -49,6 +48,7 @@ export default function Navbar() {
               <div
                 className="collapse navbar-collapse offset"
                 id="navbarSupportedContent"
+                data-parent="#accordion"
               >
                 <ul className="nav navbar-nav menu_nav ml-auto ">
                   <li className="nav-item">
