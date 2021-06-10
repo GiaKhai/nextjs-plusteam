@@ -10,11 +10,9 @@ export default function BoxBlog({ blog }) {
         <div className="service-content">
           <h5>{blog.title}</h5>
           <p>{blog.summary}</p>
-          <div className="read">
-            <Link href={"/blog/" + blog.id} key={blog.id}>
-              Read more &gt;
-            </Link>
-          </div>
+          <Link href={"/blog/" + blog.id} key={blog.id}>
+            Read more &gt;
+          </Link>
         </div>
       </div>
       <style jsx>{`
