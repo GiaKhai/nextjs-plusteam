@@ -7,7 +7,10 @@ export default function JD({ job }) {
     <div className="col-lg-6 col-md-6 mt-25">
       <div className="box-job">
         <div className="row">
-          <div className="col col-lg-2"></div>
+          <div className="col col-lg-2"><img
+                    src={job.image}
+                    style={{width:"100%" }}
+                  /></div>
           <div className="col col-lg-10">
             <h4 className="question-title">{job.title}</h4>
             <div className="badge">Urgent</div>

@@ -6,7 +6,9 @@ import { server } from "../../config";
 
 export const getStaticPaths = async () => {
   const fetchBlog = await fetch(`${server}blog/`);
-  const data = await fetchBlog.json();
+  const datas = await fetchBlog.json();
+
+  const data = datas.results;
 
   const paths = data.map((blog) => {
     return {
@@ -78,7 +80,7 @@ export default function Detail({ blog }) {
           </h3>
           <div className="row mt-25">
             <div className="col-lg-12 text-center">
-              <img className="img-title" src={blog.image} alt="" />
+              <img className="img-title" src={blog.thumnail} alt="" />
             </div>
           </div>
         </div>

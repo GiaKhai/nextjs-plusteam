@@ -121,9 +121,13 @@ export async function getStaticProps() {
   const fetchService = await fetch(`${server}service/`);
   const fetchBlog = await fetch(`${server}blog/`);
 
-  const talent = await fetchTalent.json();
-  const service = await fetchService.json();
-  const blog = await fetchBlog.json();
+  const talents = await fetchTalent.json();
+  const services = await fetchService.json();
+  const blogs = await fetchBlog.json();
+
+  const talent = talents.results;
+  const service = services.results;
+  const blog = blogs.results;
 
   return {
     props: { talent, service, blog },

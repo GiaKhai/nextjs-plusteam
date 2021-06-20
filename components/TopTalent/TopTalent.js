@@ -102,8 +102,8 @@ export default function TopTalent({ talent }) {
             </div>
             <div className="col-lg-7">
               <div className="row">
-                {talent?.map((talent) => {
-                  return <TalentItem key={talent.id} talent={talent} />;
+                {talent?.map((talent, index) => {
+                  return index < 8 && <TalentItem key={talent.id} talent={talent} />;
                 })}
               </div>
             </div>

@@ -11,7 +11,9 @@ import "antd/dist/antd.css";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch(`${server}job/`);
-  const data = await fetchJob.json();
+  const datas = await fetchJob.json();
+
+  const data = datas.results;
 
   const paths = data.map((job) => {
     return {
@@ -59,7 +61,7 @@ export default function DetailJob({ job }) {
     formData.append("email", values.email);
     formData.append("file", values.file);
 
-    const result = await axios.post(`${server}job-submission/`, formData);
+    const result = await axios.post(`${server}jobSubmission/`, formData);
     if (result.status === 200 || result.status === 201) {
       setValues({
         first_name: "",

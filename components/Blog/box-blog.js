@@ -5,7 +5,7 @@ export default function BoxBlog({ blog }) {
     <div className="col-md-6 col-lg-4 mt-25">
       <div className="single-service">
         <div className="service-icon">
-          <img src={blog.image} alt="" />
+          <img src={blog.thumnail} alt="" />
         </div>
         <div className="service-content">
           <h5>{blog.title}</h5>

@@ -62,7 +62,7 @@ export default function Home({ blog }) {
               className="col-lg-6 col-lg-4"
               style={{ padding: "0px !important" }}
             >
-              <img src={blog[0].image} className="img-lastest" alt="img" />
+              <img src={blog[0].thumnail} className="img-lastest" alt="img" />
             </div>
             <div className="col-lg-6  text-center">
               <div style={{ padding: "15px" }}>
@@ -261,7 +261,9 @@ export default function Home({ blog }) {
 export async function getStaticProps() {
   const fetchBlog = await fetch(`${server}blog/`);
 
-  const blog = await fetchBlog.json();
+  const blogs = await fetchBlog.json();
+
+  const blog = blogs.results;
 
   return {
     props: { blog },

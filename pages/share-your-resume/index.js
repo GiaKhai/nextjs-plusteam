@@ -72,7 +72,7 @@ export default function ShareYourResume({ job }) {
       <div className="container">
         <div className="row">
           {job.map((job) => {
-            return <JD job={job}></JD>;
+            return <JD key={job.id} job={job}></JD>; 
           })}
         </div>
       </div>
@@ -83,7 +83,9 @@ export default function ShareYourResume({ job }) {
 export async function getStaticProps() {
   const fetchJob = await fetch(`${server}job/`);
 
-  const job = await fetchJob.json();
+  const jobs = await fetchJob.json();
+
+  const job = jobs.results; 
 
   return {
     props: { job },
