@@ -16,20 +16,20 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
-import { useEffect } from "react";
 
-export default function Home({ talent, service, blog }) {
 
-  // const router = useRouter();
-  // const refreshData = () => {
-  //   router.replace(router.asPath);
-  // }
 
-  // useEffect(()=>{
-  //   refreshData();
-  //   console.log("da thay doi");
-  // },[])
-  return (  
+async function fetcher(url) {
+  const res = await fetch(url);
+  const result = res.json();
+  const talent = result.results;
+  console.log(talent,"123");
+  return talent;
+}
+
+export default function Home({talent, service, blog}) {
+
+  return (
     <div>
       <Head>
         <link
@@ -108,9 +108,9 @@ export default function Home({ talent, service, blog }) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {/* {blog.map((blog, index) => {
+          {blog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
-          })} */}
+          })}
         </div>
       </Box>
       <Box title="GET IN TOUCH" des="">
@@ -140,16 +140,6 @@ export async function getStaticProps() {
   const blog = blogs.results;
 
   return {
-    props: { talent,service, blog },
+    props: { talent, service, blog },
   };
 }
-
-// export async function getServerSideProps(context) {
-//   const fetchTalent = await fetch(`${server}talent/`);
-//   const talents = await fetchTalent.json();
-//   const talent = talents.results;
-
-//   return {
-//     props: {talent}, // will be passed to the page component as props
-//   }
-// }
