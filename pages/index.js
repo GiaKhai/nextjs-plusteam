@@ -20,15 +20,15 @@ import { useEffect } from "react";
 
 export default function Home({ talent, service, blog }) {
 
-  const router = useRouter();
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
+  // const router = useRouter();
+  // const refreshData = () => {
+  //   router.replace(router.asPath);
+  // }
 
-  useEffect(()=>{
-    refreshData();
-    console.log("da thay doi");
-  },[])
+  // useEffect(()=>{
+  //   refreshData();
+  //   console.log("da thay doi");
+  // },[])
   return (
     <div>
       <Head>
