@@ -116,6 +116,7 @@ function Home({ talent, service, blog }) {
     </div>
   );
 }
+export default Home;
 
 
 // This gets called on every request
@@ -123,8 +124,6 @@ export async function getServerSideProps() {
 const fetchTalent = await fetch(`${server}talent/`);
 const talents = await fetchTalent.json();
 const talent = talents.results;
-
-  // Pass data to the page via props
   return { props: { talent } }
 }
 
