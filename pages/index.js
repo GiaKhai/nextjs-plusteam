@@ -97,9 +97,9 @@ export default function Home({ talent, service, blog }) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {/* {blog.map((blog, index) => {
+          {blog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
-          })} */}
+          })}
         </div>
       </Box>
       <Box title="GET IN TOUCH" des="">
@@ -115,7 +115,7 @@ export default function Home({ talent, service, blog }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const fetchTalent = await fetch(`${server}talent/`);
   const fetchService = await fetch(`${server}service/`);
   const fetchBlog = await fetch(`${server}blog/`);
@@ -131,4 +131,4 @@ export async function getServerSideProps(context) {
   return {
     props: { talent,service, blog },
   };
-} 
+}
