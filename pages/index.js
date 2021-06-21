@@ -16,20 +16,8 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
-import { useEffect,useState } from "react";
 
 export default function Home({ talent, service, blog }) {
-
-  const [isRefreshing, setIsRefreshing] = useState(false);
-
-  const router = useRouter();
-  const refreshData = () => {
-    router.replace(router.asPath);
-    setIsRefreshing(true);
-  }
-  useEffect(() => {
-    setIsRefreshing(false);
-  }, [service]);
   return (
     <div>
       <Head>
@@ -128,22 +116,19 @@ export default function Home({ talent, service, blog }) {
 }
 
 export async function getServerSideProps(context) {
+  const fetchTalent = await fetch(`${server}talent/`);
   const fetchService = await fetch(`${server}service/`);
   const fetchBlog = await fetch(`${server}blog/`);
 
+  const talents = await fetchTalent.json();
   const services = await fetchService.json();
   const blogs = await fetchBlog.json();
 
+  const talent = talents.results;
   const service = services.results;
   const blog = blogs.results;
 
   return {
-    props: { service, blog },
+    props: { talent,service, blog },
   };
-}
-// Home.getInitialProps = async (ctx) => {
-//   const fetchTalent = await fetch(`${server}talent/`);
-//   const talents = await fetchTalent.json();
-//   const talent = talents.results;
-//   return { talent: talent }
-// }
+} 
