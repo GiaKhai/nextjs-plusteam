@@ -17,16 +17,6 @@ import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
 
-
-
-async function fetcher(url) {
-  const res = await fetch(url);
-  const result = res.json();
-  const talent = result.results;
-  console.log(talent,"123");
-  return talent;
-}
-
 export default function Home({talent, service, blog}) {
 
   return (
