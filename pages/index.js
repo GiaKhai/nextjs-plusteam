@@ -19,7 +19,12 @@ import { server } from "../config";
 import { GetServerSideProps, NextPage } from "next";
 import React from "react";
 
+<<<<<<< HEAD
 function Home({ talent, service, blog }) {
+=======
+
+export default function Home({ talent, service, blog }) {
+>>>>>>> feec5f575deda93233e41ef2edbec28d43f7a404
   const [isRefreshing, setIsRefreshing] = React.useState(false);
 
   const router = useRouter();
@@ -33,6 +38,7 @@ function Home({ talent, service, blog }) {
     setIsRefreshing(false);
     refreshData();
   }, []);
+
 
   return (
     <div>

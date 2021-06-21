@@ -23,9 +23,8 @@ export default function Contact() {
     formData.append("name", values.name);
     formData.append("email", values.email);
     formData.append("content", values.content);
-
     const result = await axios.post(
-      `${server}email/`,
+      "https://api-dev.plusteam.io/api/email/",
       formData
     );
     if (result.status === 200) {
