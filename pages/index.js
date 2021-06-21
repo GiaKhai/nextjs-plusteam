@@ -120,7 +120,7 @@ export default Home;
 
 
 // This gets called on every request
-export async function getServerSideProps() {
+export async function getStaticProps() {
 const fetchTalent = await fetch(`${server}talent/`);
 const talents = await fetchTalent.json();
 const talent = talents.results;
