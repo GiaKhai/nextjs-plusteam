@@ -98,9 +98,9 @@ export default function Home({talent, service, blog}) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {blog.map((blog, index) => {
+          {/* {blog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
-          })}
+          })} */}
         </div>
       </Box>
       <Box title="GET IN TOUCH" des="">
@@ -116,20 +116,35 @@ export default function Home({talent, service, blog}) {
   );
 }
 
-export async function getStaticProps() {
-  const fetchTalent = await fetch(`${server}talent/`);
-  const fetchService = await fetch(`${server}service/`);
-  const fetchBlog = await fetch(`${server}blog/`);
-
-  const talents = await fetchTalent.json();
-  const services = await fetchService.json();
-  const blogs = await fetchBlog.json();
-
-  const talent = talents.results;
-  const service = services.results;
-  const blog = blogs.results;
-
-  return {
-    props: { talent, service, blog },
-  };
+function Page({ data }) {
+  // Render data...
 }
+
+// This gets called on every request
+export async function getServerSideProps() {
+const fetchTalent = await fetch(`${server}talent/`);
+const talents = await fetchTalent.json();
+const talent = talents.results;
+
+  // Pass data to the page via props
+  return { props: { talent } }
+}
+
+
+// export async function getStaticProps() {
+//   const fetchTalent = await fetch(`${server}talent/`);
+//   const fetchService = await fetch(`${server}service/`);
+//   const fetchBlog = await fetch(`${server}blog/`);
+
+//   const talents = await fetchTalent.json();
+//   const services = await fetchService.json();
+//   const blogs = await fetchBlog.json();
+
+//   const talent = talents.results;
+//   const service = services.results;
+//   const blog = blogs.results;
+
+//   return {
+//     props: { talent, service, blog },
+//   };
+// }
