@@ -21,6 +21,7 @@ import React from "react";
 
 
 export default function Home({ talent, service, blog }) {
+
   const [isRefreshing, setIsRefreshing] = React.useState(false);
 
   const router = useRouter();
@@ -150,7 +151,7 @@ export default function Home({ talent, service, blog }) {
 //     props: { talent, service, blog },
 //   };
 // }
-export async function getServerSideProps(context) {
+export async function getInitialProps(context) {
   const fetchTalent = await fetch(`${server}talent/`);
   const talents = await fetchTalent.json();
   const talent = talents.results;
@@ -165,3 +166,4 @@ export async function getServerSideProps(context) {
     props: { talent }, // will be passed to the page component as props
   };
 }
+export default Home;
