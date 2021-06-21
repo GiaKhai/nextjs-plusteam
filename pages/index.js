@@ -19,6 +19,7 @@ import { server } from "../config";
 import { GetServerSideProps, NextPage } from "next";
 import React from "react";
 
+
 export default function Home({ talent, service, blog }) {
   const [isRefreshing, setIsRefreshing] = React.useState(false);
 
@@ -33,6 +34,7 @@ export default function Home({ talent, service, blog }) {
     setIsRefreshing(false);
     refreshData();
   }, []);
+
 
   return (
     <div>
