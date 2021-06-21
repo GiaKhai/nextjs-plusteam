@@ -29,7 +29,7 @@ export default function Home({ talent, service, blog }) {
   //   refreshData();
   //   console.log("da thay doi");
   // },[])
-  return (
+  return (  
     <div>
       <Head>
         <link
@@ -126,30 +126,30 @@ export default function Home({ talent, service, blog }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const fetchTalent = await fetch(`${server}talent/`);
-//   const fetchService = await fetch(`${server}service/`);
-//   const fetchBlog = await fetch(`${server}blog/`);
-
-//   const talents = await fetchTalent.json();
-//   const services = await fetchService.json();
-//   const blogs = await fetchBlog.json();
-
-//   const talent = talents.results;
-//   const service = services.results;
-//   const blog = blogs.results;
-
-//   return {
-//     props: { talent,service, blog },
-//   };
-// }
-
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
   const fetchTalent = await fetch(`${server}talent/`);
+  const fetchService = await fetch(`${server}service/`);
+  const fetchBlog = await fetch(`${server}blog/`);
+
   const talents = await fetchTalent.json();
+  const services = await fetchService.json();
+  const blogs = await fetchBlog.json();
+
   const talent = talents.results;
+  const service = services.results;
+  const blog = blogs.results;
 
   return {
-    props: {talent}, // will be passed to the page component as props
-  }
+    props: { talent,service, blog },
+  };
 }
+
+// export async function getServerSideProps(context) {
+//   const fetchTalent = await fetch(`${server}talent/`);
+//   const talents = await fetchTalent.json();
+//   const talent = talents.results;
+
+//   return {
+//     props: {talent}, // will be passed to the page component as props
+//   }
+// }
