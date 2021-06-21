@@ -1,6 +1,5 @@
 /** @format */
 import Head from "next/head";
-import Link from "next/link";
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
 import Box from "../components/Box/Box";
@@ -12,13 +11,16 @@ import Navbar from "../components/Navbar/navbar";
 import Pricing from "../components/Pricing/pricing";
 import Process from "../components/Process/process";
 import Services from "../components/Service/service";
-import JD from "../components/ShareYourResume/JD-item";
 import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
+import { useEffect } from "react";
 
 export default function Home({ talent, service, blog }) {
+  useEffect(()=>{
+    console.log(talent);
+  },[talent])
   return (
     <div>
       <Head>
