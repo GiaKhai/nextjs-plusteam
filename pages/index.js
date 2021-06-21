@@ -1,6 +1,6 @@
 /** @format */
 import Head from "next/head";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
 import Box from "../components/Box/Box";
@@ -16,9 +16,10 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
+import { GetServerSideProps, NextPage } from "next";
+import React from "react";
 
-export default function Home({talent, service, blog}) {
-
+function Home({ talent, service, blog }) {
   return (
     <div>
       <Head>
@@ -66,7 +67,7 @@ export default function Home({talent, service, blog}) {
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        <Services services={service} />
+        {/* <Services services={service} /> */}
       </Box>
       <Box title="OUR PRICING" des="" id="pricing">
         <Pricing />
@@ -116,9 +117,6 @@ export default function Home({talent, service, blog}) {
   );
 }
 
-function Page({ data }) {
-  // Render data...
-}
 
 // This gets called on every request
 export async function getServerSideProps() {
