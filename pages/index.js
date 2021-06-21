@@ -1,5 +1,6 @@
 /** @format */
 import Head from "next/head";
+import { useRouter } from 'next/router';
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
 import Box from "../components/Box/Box";
@@ -15,12 +16,20 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 
 export default function Home({ talent, service, blog }) {
+
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  }
   useEffect(() => {
-    console.log(talent);
-  }, [talent]);
+    setIsRefreshing(false);
+  }, [service]);
   return (
     <div>
       <Head>
@@ -118,23 +127,23 @@ export default function Home({ talent, service, blog }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const fetchService = await fetch(`${server}service/`);
-//   const fetchBlog = await fetch(`${server}blog/`);
+export async function getServerSideProps(context) {
+  const fetchService = await fetch(`${server}service/`);
+  const fetchBlog = await fetch(`${server}blog/`);
 
-//   const services = await fetchService.json();
-//   const blogs = await fetchBlog.json();
+  const services = await fetchService.json();
+  const blogs = await fetchBlog.json();
 
-//   const service = services.results;
-//   const blog = blogs.results;
+  const service = services.results;
+  const blog = blogs.results;
 
-//   return {
-//     props: {  service, blog },
-//   };
-// }
-Home.getInitialProps = async (ctx) => {
-  const fetchTalent = await fetch(`${server}talent/`);
-  const talents = await fetchTalent.json();
-  const talent = talents.results;
-  return { talent: talent }
+  return {
+    props: { service, blog },
+  };
 }
+// Home.getInitialProps = async (ctx) => {
+//   const fetchTalent = await fetch(`${server}talent/`);
+//   const talents = await fetchTalent.json();
+//   const talent = talents.results;
+//   return { talent: talent }
+// }
