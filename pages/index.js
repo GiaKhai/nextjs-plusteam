@@ -1,6 +1,6 @@
 /** @format */
 import Head from "next/head";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
 import Box from "../components/Box/Box";
@@ -16,8 +16,25 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
+import { GetServerSideProps, NextPage } from "next";
+import React from "react";
 
-export default function Home({talent, service, blog}) {
+
+export default function Home({ talent, service, blog }) {
+  const [isRefreshing, setIsRefreshing] = React.useState(false);
+
+  const router = useRouter();
+  // Call this function whenever you want to
+  // refresh props!
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  };
+  React.useEffect(() => {
+    setIsRefreshing(false);
+    refreshData();
+  }, []);
+
 
   return (
     <div>
@@ -66,7 +83,7 @@ export default function Home({talent, service, blog}) {
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        <Services services={service} />
+        {/* <Services services={service} /> */}
       </Box>
       <Box title="OUR PRICING" des="" id="pricing">
         <Pricing />
@@ -98,9 +115,9 @@ export default function Home({talent, service, blog}) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {blog.map((blog, index) => {
+          {/* {blog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
-          })}
+          })} */}
         </div>
       </Box>
       <Box title="GET IN TOUCH" des="">
@@ -116,20 +133,35 @@ export default function Home({talent, service, blog}) {
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   const fetchTalent = await fetch(`${server}talent/`);
+//   const fetchService = await fetch(`${server}service/`);
+//   const fetchBlog = await fetch(`${server}blog/`);
+
+//   const talents = await fetchTalent.json();
+//   const services = await fetchService.json();
+//   const blogs = await fetchBlog.json();
+
+//   const talent = talents.results;
+//   const service = services.results;
+//   const blog = blogs.results;
+
+//   return {
+//     props: { talent, service, blog },
+//   };
+// }
+export async function getServerSideProps(context) {
   const fetchTalent = await fetch(`${server}talent/`);
-  const fetchService = await fetch(`${server}service/`);
-  const fetchBlog = await fetch(`${server}blog/`);
-
   const talents = await fetchTalent.json();
-  const services = await fetchService.json();
-  const blogs = await fetchBlog.json();
-
   const talent = talents.results;
-  const service = services.results;
-  const blog = blogs.results;
+
+  if (!talents) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
-    props: { talent, service, blog },
+    props: { talent }, // will be passed to the page component as props
   };
 }
