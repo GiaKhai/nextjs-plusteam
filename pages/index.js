@@ -25,7 +25,6 @@ export default function Home({ talent }) {
   const [myFetchedData, setMyFetchedData] = useState(talent);
 
   async function refresh() {
-    console.log("++++++");
     const refreshedProps = await data();
     setMyFetchedData(refreshedProps.talent);
   }
@@ -71,7 +70,6 @@ export default function Home({ talent }) {
           rel="stylesheet"
         />
       </Head>
-      <button onClick={refresh}>refresh</button>
       <Navbar />
 
       <TopTalent talent={myFetchedData} />
