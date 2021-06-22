@@ -116,17 +116,23 @@ function Home({ talent, service, blog }) {
     </div>
   );
 }
-export default Home;
 
 
 // This gets called on every request
-export async function getStaticProps() {
-const fetchTalent = await fetch(`${server}talent/`);
-const talents = await fetchTalent.json();
-const talent = talents.results;
-  return { props: { talent } }
-}
+// export async function getServerSideProps() {
+// const fetchTalent = await fetch(`${server}talent/`);
+// const talents = await fetchTalent.json();
+// const talent = talents.results;
+//   return { props: { talent } }
+// }
 
+Home.getInitialProps = async (ctx) => {
+    const fetchTalent = await fetch(`${server}talent/`);
+    const talents = await fetchTalent.json();
+    const talent = talents.results;
+  return { talent: talent }
+}
+export default Home;
 
 // export async function getStaticProps() {
 //   const fetchTalent = await fetch(`${server}talent/`);
