@@ -17,16 +17,18 @@ import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
 import { useState, useEffect } from "react";
-
-import { GetServerSideProps, NextPage } from "next";
 import React from "react";
 
-export default function Home({ talent }) {
-  const [myFetchedData, setMyFetchedData] = useState(talent);
+export default function Home({ talent, service, blog }) {
+  const [stateTalent, setMyFetchedTalent] = useState(talent);
+  const [stateService, setMyFetchedService] = useState(service);
+  const [stateBlog, setMyFetchedBlog] = useState(blog);
 
   async function refresh() {
     const refreshedProps = await data();
-    setMyFetchedData(refreshedProps.talent);
+    setMyFetchedTalent(refreshedProps.talent);
+    setMyFetchedService(refreshedProps.service);
+    setMyFetchedBlog(refreshedProps.blog);
   }
   useEffect(() => {
     refresh();
@@ -72,14 +74,14 @@ export default function Home({ talent }) {
       </Head>
       <Navbar />
 
-      <TopTalent talent={myFetchedData} />
+      <TopTalent talent={stateTalent} />
       <Trusted />
       <Box
         id="services"
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        {/* <Services services={service} /> */}
+        <Services services={stateService} />
       </Box>
       <Box title="OUR PRICING" des="" id="pricing">
         <Pricing />
@@ -111,9 +113,9 @@ export default function Home({ talent }) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {/* {blog.map((blog, index) => {
+          {stateBlog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
-          })} */}
+          })}
         </div>
       </Box>
       <Box title="GET IN TOUCH" des="">
@@ -131,9 +133,17 @@ export default function Home({ talent }) {
 
 async function data() {
   const fetchTalent = await fetch(`${server}talent/`);
+  const fetchService = await fetch(`${server}service/`);
+  const fetchBlog = await fetch(`${server}blog/`);
+
   const talents = await fetchTalent.json();
+  const services = await fetchService.json();
+  const blogs = await fetchBlog.json();
+
   const talent = talents.results;
-  return { talent };
+  const service = services.results;
+  const blog = blogs.results;
+  return { talent, service, blog };
 }
 
 // Home.getInitialProps = async (ctx) => {
