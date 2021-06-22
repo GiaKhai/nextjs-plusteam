@@ -16,10 +16,23 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
+import { useState, useEffect } from "react";
+
 import { GetServerSideProps, NextPage } from "next";
 import React from "react";
 
-function Home({ talent, service, blog }) {
+export default function Home({ talent }) {
+  const [myFetchedData, setMyFetchedData] = useState(talent);
+
+  async function refresh() {
+    console.log("++++++");
+    const refreshedProps = await data();
+    setMyFetchedData(refreshedProps.talent);
+  }
+  useEffect(() => {
+    refresh();
+  }, []);
+
   return (
     <div>
       <Head>
@@ -58,9 +71,10 @@ function Home({ talent, service, blog }) {
           rel="stylesheet"
         />
       </Head>
+      <button onClick={refresh}>refresh</button>
       <Navbar />
 
-      <TopTalent talent={talent} />
+      <TopTalent talent={myFetchedData} />
       <Trusted />
       <Box
         id="services"
@@ -117,12 +131,11 @@ function Home({ talent, service, blog }) {
   );
 }
 
-
-export async function getServerSideProps() {
-const fetchTalent = await fetch(`${server}talent/`);
-const talents = await fetchTalent.json();
-const talent = talents.results;
-  return { props: { talent } }
+async function data() {
+  const fetchTalent = await fetch(`${server}talent/`);
+  const talents = await fetchTalent.json();
+  const talent = talents.results;
+  return { talent };
 }
 
 // Home.getInitialProps = async (ctx) => {
@@ -131,7 +144,7 @@ const talent = talents.results;
 //     const talent = talents.results;
 //   return { talent: talent }
 // }
-export default Home;
+Home.getInitialProps = data;
 
 // export async function getStaticProps() {
 //   const fetchTalent = await fetch(`${server}talent/`);
