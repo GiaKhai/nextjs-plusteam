@@ -1,6 +1,5 @@
-/** @format */
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 import BoxBlog from "../components/Blog/box-blog";
 import AIPlatform from "../components/AI/ai";
 import Box from "../components/Box/Box";
@@ -16,24 +15,7 @@ import Team from "../components/Team/team";
 import TopTalent from "../components/TopTalent/TopTalent";
 import Trusted from "../components/Trusted/trusted";
 import { server } from "../config";
-import { useState, useEffect } from "react";
-import React from "react";
-
-export default function Home({ talent, service, blog }) {
-  const [stateTalent, setMyFetchedTalent] = useState(talent);
-  const [stateService, setMyFetchedService] = useState(service);
-  const [stateBlog, setMyFetchedBlog] = useState(blog);
-
-  async function refresh() {
-    const refreshedProps = await data();
-    setMyFetchedTalent(refreshedProps.talent);
-    setMyFetchedService(refreshedProps.service);
-    setMyFetchedBlog(refreshedProps.blog);
-  }
-  useEffect(() => {
-    refresh();
-  }, []);
-
+export default function Home({talent, service, blog}) {
   return (
     <div>
       <Head>
@@ -45,16 +27,12 @@ export default function Home({ talent, service, blog }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         />
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-
         <title>PlusTeam</title>
         <meta name="description" content="PlusTeam Global" />
         <link rel="icon" href="/static/img/logo/Logo.svg" />
-
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Avenir"
@@ -73,15 +51,14 @@ export default function Home({ talent, service, blog }) {
         />
       </Head>
       <Navbar />
-
-      <TopTalent talent={stateTalent} />
+      <TopTalent talent={talent} />
       <Trusted />
       <Box
         id="services"
         title="OUR SERVICES"
         des="PlusTeam assists companies to build their technology teams in Vietnam."
       >
-        <Services services={stateService} />
+        <Services services={service} />
       </Box>
       <Box title="OUR PRICING" des="" id="pricing">
         <Pricing />
@@ -113,7 +90,7 @@ export default function Home({ talent, service, blog }) {
       </Box>
       <Box title="BLOG" des="">
         <div className="row">
-          {stateBlog.map((blog, index) => {
+          {blog.map((blog, index) => {
             return index < 3 && <BoxBlog key={blog.id} blog={blog}></BoxBlog>;
           })}
         </div>
@@ -129,9 +106,9 @@ export default function Home({ talent, service, blog }) {
       `}</style>
     </div>
   );
-}
+} 
 
-async function data() {
+export async function getStaticProps() {
   const fetchTalent = await fetch(`${server}talent/`);
   const fetchService = await fetch(`${server}service/`);
   const fetchBlog = await fetch(`${server}blog/`);
@@ -143,31 +120,9 @@ async function data() {
   const talent = talents.results;
   const service = services.results;
   const blog = blogs.results;
-  return { talent, service, blog };
+
+  return {
+    props: { talent, service, blog },
+    revalidate: 1,
+  };
 }
-
-// Home.getInitialProps = async (ctx) => {
-//     const fetchTalent = await fetch(`${server}talent/`);
-//     const talents = await fetchTalent.json();
-//     const talent = talents.results;
-//   return { talent: talent }
-// }
-Home.getInitialProps = data;
-
-// export async function getStaticProps() {
-//   const fetchTalent = await fetch(`${server}talent/`);
-//   const fetchService = await fetch(`${server}service/`);
-//   const fetchBlog = await fetch(`${server}blog/`);
-
-//   const talents = await fetchTalent.json();
-//   const services = await fetchService.json();
-//   const blogs = await fetchBlog.json();
-
-//   const talent = talents.results;
-//   const service = services.results;
-//   const blog = blogs.results;
-
-//   return {
-//     props: { talent, service, blog },
-//   };
-// }

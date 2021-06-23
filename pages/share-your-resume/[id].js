@@ -30,6 +30,7 @@ export const getStaticProps = async (context) => {
   const job = await fetchJob.json();
   return {
     props: { job },
+    revalidate: 1,
   };
 };
 

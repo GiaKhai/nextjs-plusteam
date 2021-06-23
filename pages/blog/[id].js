@@ -7,9 +7,7 @@ import { server } from "../../config";
 export const getStaticPaths = async () => {
   const fetchBlog = await fetch(`${server}blog/`);
   const datas = await fetchBlog.json();
-
   const data = datas.results;
-
   const paths = data.map((blog) => {
     return {
       params: { id: blog.id.toString() },
@@ -25,6 +23,7 @@ export const getStaticProps = async (context) => {
   const blog = await fetchBlog.json();
   return {
     props: { blog },
+    revalidate: 1,
   };
 };
 

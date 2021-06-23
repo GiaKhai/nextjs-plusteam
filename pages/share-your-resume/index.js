@@ -89,5 +89,6 @@ export async function getStaticProps() {
 
   return {
     props: { job },
+    revalidate: 1,
   };
 }
