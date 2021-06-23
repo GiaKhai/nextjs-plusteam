@@ -82,7 +82,7 @@ export default function ShareYourResume({ job }) {
     </div>
   );
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const fetchJob = await fetch(`${server}job/`);
 
   const job = await fetchJob.json();

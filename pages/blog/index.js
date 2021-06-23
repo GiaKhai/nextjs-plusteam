@@ -268,7 +268,7 @@ export default function Home({ blog }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const fetchBlog = await fetch(`${server}blog/`);
 
   const blog = await fetchBlog.json();

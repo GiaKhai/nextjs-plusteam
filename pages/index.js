@@ -116,7 +116,7 @@ export default function Home({ talent, service, blog }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const fetchTalent = await fetch(`${server}talent/`);
   const fetchService = await fetch(`${server}service/`);
   const fetchBlog = await fetch(`${server}blog/`);

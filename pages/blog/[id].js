@@ -14,10 +14,10 @@ export const getStaticPaths = async () => {
     };
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const id = context.params.id;
   const fetchBlog = await fetch(`${server}blog/${id}`);
   const blog = await fetchBlog.json();

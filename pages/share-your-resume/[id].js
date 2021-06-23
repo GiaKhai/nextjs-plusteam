@@ -19,10 +19,10 @@ export const getStaticPaths = async () => {
     };
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
-export const getStaticProps = async (context) => {
+export const getServerSideProps = async (context) => {
   const id = context.params.id;
   const fetchJob = await fetch(`${server}job/${id}`);
   const job = await fetchJob.json();
