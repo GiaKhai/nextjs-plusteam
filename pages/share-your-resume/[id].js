@@ -11,7 +11,9 @@ import "antd/dist/antd.css";
 
 export const getStaticPaths = async () => {
   const fetchJob = await fetch(`${server}job/`);
-  const data = await fetchJob.json();
+  const datas = await fetchJob.json();
+
+  const data = datas.results;
 
   const paths = data.map((job) => {
     return {
@@ -28,6 +30,7 @@ export const getServerSideProps = async (context) => {
   const job = await fetchJob.json();
   return {
     props: { job },
+    revalidate: 1,
   };
 };
 
@@ -59,9 +62,8 @@ export default function DetailJob({ job }) {
     formData.append("email", values.email);
     formData.append("file", values.file);
 
-    const result = await axios.post(`${server}job-submission/`, formData);
-    console.log(result);
-    if (result.status === 200) {
+    const result = await axios.post(`${server}jobSubmission/`, formData);
+    if (result.status === 200 || result.status === 201) {
       setValues({
         first_name: "",
         last_name: "",
@@ -91,7 +93,6 @@ export default function DetailJob({ job }) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         />
-        <link rel="stylesheet" href="assets/css/style.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -110,13 +111,11 @@ export default function DetailJob({ job }) {
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
           crossorigin="anonymous"
         ></script>
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        ></script>
+
         <script
           src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
         ></script>
         <link
           rel="stylesheet"

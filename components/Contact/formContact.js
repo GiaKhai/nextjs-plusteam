@@ -28,7 +28,7 @@ export default function FormContact({ radio }) {
     formData.append("content", values.content);
 
     const result = await axios.post(
-      "https://api-dev.plusteam.io/email",
+      "https://api-dev.plusteam.io/api/email/",
       formData
     );
     if (result.status === 200) {
@@ -36,6 +36,7 @@ export default function FormContact({ radio }) {
         message: "Success",
         description: "Please check your email !",
       });
+      window.location.reload();
     } else
       notification.error({
         message: "False",

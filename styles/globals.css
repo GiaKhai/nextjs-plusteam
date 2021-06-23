@@ -78,3 +78,11 @@ a:hover {
   display: inline-block;
   font-size: 14px;
 }
+
+.single-footer-widget a {
+  color: #fdfdfd !important;
+}
+.single-footer-widget a:hover {
+  color: #fdb31c !important;
+  text-decoration: none;
+}

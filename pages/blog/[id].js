@@ -6,8 +6,8 @@ import { server } from "../../config";
 
 export const getStaticPaths = async () => {
   const fetchBlog = await fetch(`${server}blog/`);
-  const data = await fetchBlog.json();
-
+  const datas = await fetchBlog.json();
+  const data = datas.results;
   const paths = data.map((blog) => {
     return {
       params: { id: blog.id.toString() },
@@ -23,6 +23,7 @@ export const getServerSideProps = async (context) => {
   const blog = await fetchBlog.json();
   return {
     props: { blog },
+    revalidate: 1,
   };
 };
 
@@ -37,19 +38,18 @@ export default function Detail({ blog }) {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
         />
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
           crossorigin="anonymous"
         />
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        />
+
         <script
           src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
         />
         <link
           rel="stylesheet"
@@ -79,7 +79,7 @@ export default function Detail({ blog }) {
           </h3>
           <div className="row mt-25">
             <div className="col-lg-12 text-center">
-              <img className="img-title" src={blog.image} alt="" />
+              <img className="img-title" src={blog.thumnail} alt="" />
             </div>
           </div>
         </div>

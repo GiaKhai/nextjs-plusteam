@@ -74,8 +74,9 @@ const Question = ({ onChange, data }) => {
         }
         @media (max-width: 575px) {
           .question {
-          padding: 20px 17% 20px 3%;
-          display: block;
+            padding: 20px 15% 20px 3%;
+            display: block;
+          }
         }
       `}</style>
     </div>

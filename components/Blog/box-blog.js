@@ -5,13 +5,13 @@ export default function BoxBlog({ blog }) {
     <div className="col-md-6 col-lg-4 mt-25">
       <div className="single-service">
         <div className="service-icon">
-          <img src={blog.image} alt="" />
+          <img src={blog.thumnail} alt="" />
         </div>
         <div className="service-content">
           <h5>{blog.title}</h5>
-          <p>{blog.content}</p>
+          <p>{blog.summary}</p>
           <Link href={"/blog/" + blog.id} key={blog.id}>
-            Read more
+            Read more &gt;
           </Link>
         </div>
       </div>
@@ -57,6 +57,7 @@ export default function BoxBlog({ blog }) {
         }
         .service-content {
           padding: 15px 20px;
+          color: #292b33 !important;
         }
         .service-content:hover {
           color: #fdb31c !important;
