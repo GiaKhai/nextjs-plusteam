@@ -4,7 +4,7 @@ export default function BoxService({ service }) {
   return (
     <div className="col-lg-4">
       <div className="box-service">
-        <img src={service.image} alt="service" />
+        <img className="img-service" src={service.image} alt="service" />
         <h4 className="services-title padding-t-15">{service.title}</h4>
         <p className="services-content">{service.description}</p>
       </div>
@@ -54,6 +54,9 @@ export default function BoxService({ service }) {
           line-height: 26px;
           text-align: center;
           color: #292b33;
+        }
+        .img-service {
+          width: 100px;
         }
       `}</style>
     </div>
